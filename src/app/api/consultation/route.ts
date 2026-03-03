@@ -22,6 +22,31 @@ export async function POST(req: NextRequest) {
   }
 }
 
+export async function PATCH(req: NextRequest) {
+  try {
+    const { consultationId, extractedData } = await req.json();
+    if (!consultationId) {
+      return NextResponse.json({ error: "consultationId required" }, { status: 400 });
+    }
+
+    const supabase = createServerSupabaseClient();
+    const { error } = await supabase
+      .from("consultations")
+      .update({
+        extracted_data: extractedData,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", consultationId);
+
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: "Failed to update consultation" }, { status: 500 });
+  }
+}
+
 export async function GET(req: NextRequest) {
   const sessionId = req.nextUrl.searchParams.get("session_id");
   if (!sessionId) {
