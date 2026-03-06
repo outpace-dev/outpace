@@ -32,12 +32,18 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
       console.log("[ConvAI] Connected");
       setVoiceError(null);
     },
-    onDisconnect: () => {
-      console.log("[ConvAI] Disconnected");
+    onDisconnect: (details) => {
+      console.log("[ConvAI] Disconnected", details);
     },
     onError: (err: string) => {
       console.error("[ConvAI] Error:", err);
       setVoiceError("Connection error. Please try again.");
+    },
+    onStatusChange: (status) => {
+      console.log("[ConvAI] Status:", status);
+    },
+    onDebug: (info) => {
+      console.log("[ConvAI] Debug:", info);
     },
   });
 
