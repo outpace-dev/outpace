@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     if (pageConfig?.customQuestionFramework) {
       // Custom page (e.g. RAYN) — the agent already knows the company
       firstMessage = pageConfig.firstMessage ||
-        `Hi there! I'm your growth consultant from Outpace. We've done some homework on your business already, so this won't be a cold start — I've got a good sense of what you do. I'd love to dig into the specifics with you and find the biggest growth opportunities. Should only take about 10 minutes. So tell me — how's business been going lately?`;
+        `Hi there! I'm your growth consultant from Outpace. We've done some homework on your business already. Here's how this works — I'll walk you through about five or six areas: how the business is going, where your leads come from, your digital presence, client retention, and any pain points. Takes about ten minutes. Then we'll put together a tailored growth proposal within 24 hours. So let's get into it — tell me a bit about your business and how things have been going.`;
     } else {
       firstMessage =
         "Hi there! I'm your growth consultant from Outpace. I'd love to learn about your business and explore how we might help you grow. This'll take about 10 minutes. Let's get started — tell me a bit about what your company does?";

@@ -79,7 +79,7 @@ export const PAGE_CONFIGS: Record<string, DiscoveryPageConfig> = {
     ],
     industry: "Security & Safety",
     firstMessage:
-      "Hi! I'm your growth consultant from Outpace. We've already done some research on RAYN — I know you're Ireland's leading independent security and safety provider, you've got the full end-to-end offering with TotalSafe, offices in Limerick and Dublin, and some serious clients like the HSE and Defence Forces. So this won't be a cold start — I want to dig into where the real growth opportunities are. How's business been going lately?",
+      "Hi! I'm your growth consultant from Outpace. We've already done some research on RAYN — I know you're Ireland's leading independent security and safety provider, with TotalSafe, offices in Limerick and Dublin, and clients like the HSE and Defence Forces. So here's how this works — I'm going to walk you through about five or six areas: how the business is going generally, where your new leads come from, your digital presence, how you retain and upsell existing clients, and any pain points or capacity constraints. It'll take about ten minutes, and at the end we'll put together a tailored growth proposal within 24 hours. So let's start at the top — how long has RAYN been going, and how has the business changed over the last couple of years?",
     customQuestionFramework: `## ABOUT THIS PROSPECT
 You are speaking with someone from RAYN Safety & Security (rayn.ie). Here is what you already know about them — use this context to ask smarter questions, but DO NOT recite it back to them:
 - Ireland's leading independent security and safety provider
