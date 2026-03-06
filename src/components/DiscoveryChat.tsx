@@ -348,31 +348,34 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
           </svg>
         </div>
         <h3 className="text-white font-bold text-xl mb-3">
-          Ready for your free growth consultation?
+          {pageConfig?.contactName
+            ? `${pageConfig.contactName}, let\u2019s talk growth`
+            : "Ready for your free growth consultation?"}
         </h3>
         <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
-          Our AI consultant will ask you a few questions about your business and
-          identify specific growth opportunities. Takes about 10 minutes.
+          {pageConfig?.contactName
+            ? "We\u2019ve done our homework on your business. A quick 10-minute conversation and our team will put together a tailored growth proposal for you."
+            : "A quick 10-minute conversation about your business, and we\u2019ll put together a tailored growth proposal. No obligation."}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <button
-            onClick={() => setStarted(true)}
-            className="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-cyan-500/25"
-          >
-            Start consultation &rarr;
-          </button>
           <button
             onClick={() => {
               setStarted(true);
               setVoiceMode(true);
             }}
-            className="bg-gradient-to-r from-violet-500 to-purple-600 hover:from-violet-400 hover:to-purple-500 text-white font-semibold px-8 py-3 rounded-xl transition-all duration-200 shadow-lg shadow-violet-500/25 flex items-center gap-2"
+            className="bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-white font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 shadow-lg shadow-cyan-500/25 flex items-center gap-2"
           >
             <Phone className="w-4 h-4" />
-            Voice consultation
+            Start voice consultation
+          </button>
+          <button
+            onClick={() => setStarted(true)}
+            className="text-slate-400 hover:text-slate-200 font-medium px-6 py-3.5 rounded-xl transition-all duration-200 border border-slate-700/60 hover:border-slate-600 text-sm"
+          >
+            Prefer to type? Start text chat
           </button>
         </div>
-        <p className="text-slate-600 text-xs mt-4">
+        <p className="text-slate-600 text-xs mt-5">
           No sign-up required &middot; Completely free &middot; Proposal within 24 hours
         </p>
       </div>

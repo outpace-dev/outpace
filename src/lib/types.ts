@@ -116,4 +116,6 @@ export interface DiscoveryPageConfig {
   companyLogo?: string;
   companyName?: string;
   companyDescription?: string;
+  contactName?: string;
+  knownClients?: string[];
 }
