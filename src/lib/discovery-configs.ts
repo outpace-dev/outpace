@@ -79,7 +79,7 @@ export const PAGE_CONFIGS: Record<string, DiscoveryPageConfig> = {
     ],
     industry: "Security & Safety",
     firstMessage:
-      "Hi! I'm your growth consultant from Outpace. We've already done some research on RAYN — I know you're Ireland's leading independent security and safety provider, with TotalSafe, offices in Limerick and Dublin, and clients like the HSE and Defence Forces. So here's how this works — I'm going to walk you through about five or six areas: how the business is going generally, where your new leads come from, your digital presence, how you retain and upsell existing clients, and any pain points or capacity constraints. It'll take about ten minutes, and at the end we'll put together a tailored growth proposal within 24 hours. So let's start at the top — how long has RAYN been going, and how has the business changed over the last couple of years?",
+      "Hey! I'm from Outpace — we're a growth consultancy, and we've done a bit of homework on RAYN already. I know you're Ireland's leading independent security and safety provider, TotalSafe, offices in Limerick and Dublin. So I've got some good context. What I'd love to do is spend about ten minutes asking you some questions so our team can put together a tailored growth proposal. Sound good?",
     customQuestionFramework: `## ABOUT THIS PROSPECT — RAYN Safety & Security
 You are speaking with someone from RAYN Safety & Security. Here is what you already know about them. Use this intelligence to ask smarter, more specific questions. You can reference this knowledge naturally in conversation — "I know you've got the TotalSafe offering..." — but do NOT recite it as a list or dump it all at once.
 
