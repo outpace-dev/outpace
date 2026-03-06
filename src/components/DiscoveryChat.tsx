@@ -163,11 +163,37 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
   const startVoiceSession = useCallback(async () => {
     setVoiceError(null);
     setVoiceConnecting(true);
-    setVoiceStep("Fetching session...");
     console.log("[ConvAI] Starting voice session...");
 
-    // Get signed URL + system prompt from server
-    // (ElevenLabs SDK handles mic permission internally via startSession)
+    // Step 1: Request mic permission explicitly BEFORE the SDK
+    // (SDK's internal getUserMedia can hang if permission prompt is unresolved)
+    setVoiceStep("Requesting mic access...");
+    try {
+      console.log("[ConvAI] Requesting mic permission...");
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      // Stop the stream immediately — SDK will create its own
+      stream.getTracks().forEach((t) => t.stop());
+      console.log("[ConvAI] Mic permission granted");
+    } catch (err) {
+      console.error("[ConvAI] Mic error:", err);
+      setVoiceConnecting(false);
+      setVoiceStep("");
+      if (err instanceof DOMException && err.name === "NotAllowedError") {
+        setVoiceError(
+          "Microphone access denied. Please allow mic access in your browser settings."
+        );
+      } else if (err instanceof DOMException && err.name === "NotFoundError") {
+        setVoiceError("No microphone found. Please connect a microphone.");
+      } else {
+        setVoiceError(
+          "Could not access microphone. Please check your browser settings."
+        );
+      }
+      return;
+    }
+
+    // Step 2: Fetch signed URL + system prompt from server
+    setVoiceStep("Fetching session...");
     try {
       console.log("[ConvAI] Fetching signed URL...");
       const res = await fetch("/api/elevenlabs/signed-url", {
@@ -183,6 +209,7 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
         const errData = await res.json().catch(() => ({}));
         console.error("[ConvAI] Signed URL error:", res.status, errData);
         setVoiceConnecting(false);
+        setVoiceStep("");
         setVoiceError(errData.error || "Failed to start voice session");
         return;
       }
@@ -191,6 +218,7 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
       console.log("[ConvAI] Got signed URL, starting session...");
       setVoiceStep("Connecting...");
 
+      // Step 3: Start ConvAI session (mic already permitted)
       await conversation.startSession({
         signedUrl,
         overrides: {
@@ -211,13 +239,7 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
       setVoiceConnecting(false);
       setVoiceStep("");
       const msg = err instanceof Error ? err.message : String(err);
-      if (msg.includes("Permission") || msg.includes("NotAllowed") || msg.includes("permission")) {
-        setVoiceError("Microphone access denied. Please allow mic access in your browser settings.");
-      } else if (msg.includes("NotFound") || msg.includes("no audio")) {
-        setVoiceError("No microphone found. Please connect a microphone.");
-      } else {
-        setVoiceError(`Failed to start conversation: ${msg}`);
-      }
+      setVoiceError(`Failed to start conversation: ${msg}`);
     }
   }, [slug, conversation]);
 
