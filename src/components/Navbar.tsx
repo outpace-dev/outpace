@@ -129,7 +129,7 @@ export default function Navbar() {
               className={`ml-3 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 text-brand-muted hover:text-brand-cyan-bright hover:bg-brand-cyan-bright/10 inline-flex items-center gap-1.5`}
             >
               <LogIn size={14} />
-              Client Portal
+              Login
             </Link>
 
             <Link
@@ -201,7 +201,7 @@ export default function Navbar() {
                 className="flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-brand-muted hover:text-brand-cyan-bright hover:bg-brand-cyan-bright/10 transition-all"
               >
                 <LogIn size={14} />
-                Client Portal
+                Login
               </Link>
 
               <Link
