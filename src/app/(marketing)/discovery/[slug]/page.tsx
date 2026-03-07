@@ -34,7 +34,7 @@ export default function PersonalisedDiscoveryPage({
       <ScrollToTop />
       {/* ── Full-width hero image ── */}
       {config.heroImage && (
-        <div className="relative w-full h-56 md:h-72 lg:h-96 overflow-hidden group">
+        <div className="relative w-full h-56 md:h-72 lg:h-96 overflow-hidden group -mb-16">
           <Image
             src={config.heroImage}
             alt={config.companyName || "Company"}
@@ -43,8 +43,13 @@ export default function PersonalisedDiscoveryPage({
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1a] via-[#0a0f1a]/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1a]/40 via-transparent to-[#0a0f1a]/40" />
+          {/* Smooth bottom fade */}
+          <div
+            className="absolute inset-x-0 bottom-0 h-[70%]"
+            style={{ background: "linear-gradient(to top, #0a0f1a 0%, #0a0f1a 8%, transparent 100%)" }}
+          />
+          {/* Subtle side vignette */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1a]/30 via-transparent to-[#0a0f1a]/30" />
         </div>
       )}
 

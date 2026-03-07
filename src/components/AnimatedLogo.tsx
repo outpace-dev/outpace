@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 
 interface AnimatedLogoProps {
   className?: string;
@@ -18,53 +18,35 @@ const letters = [
 ];
 
 export default function AnimatedLogo({ className = "" }: AnimatedLogoProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const getLetterStyle = useCallback(
-    (index: number) => {
-      if (hoveredIndex === null) return { letterSpacing: "0px" };
-
-      const distance = Math.abs(index - hoveredIndex);
-
-      if (distance === 0) {
-        return {
-          transform: "scaleX(1.2) scaleY(1.15)",
-          letterSpacing: "3px",
-        };
-      }
-      if (distance === 1) {
-        return {
-          transform: "scaleX(1.1) scaleY(1.05)",
-          letterSpacing: "2px",
-        };
-      }
-      if (distance === 2) {
-        return {
-          letterSpacing: "1px",
-        };
-      }
-      return { letterSpacing: "0px" };
-    },
-    [hoveredIndex]
-  );
+  const [hovered, setHovered] = useState(false);
 
   return (
     <span
       className={`tracking-tight text-shimmer inline-flex ${className}`}
-      onMouseLeave={() => setHoveredIndex(null)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {letters.map((letter, i) => (
         <span
           key={i}
-          onMouseEnter={() => setHoveredIndex(i)}
-          className={`inline-block transition-all duration-200 ease-out cursor-default ${
+          className={`inline-block transition-transform duration-300 ease-out ${
             letter.accent
               ? "text-brand-cyan-bright font-extrabold"
               : letter.bold
               ? "font-extrabold"
               : "font-light"
           }`}
-          style={getLetterStyle(i)}
+          style={
+            hovered
+              ? {
+                  transform: `scale(1.15)`,
+                  transitionDelay: `${i * 30}ms`,
+                }
+              : {
+                  transform: "scale(1)",
+                  transitionDelay: `${i * 20}ms`,
+                }
+          }
         >
           {letter.char}
         </span>
