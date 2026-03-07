@@ -145,6 +145,29 @@ body {
   animation: morph 8s ease-in-out infinite;
 }
 
+/* Orbiting dot animations */
+@keyframes orbit-1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes orbit-2 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+@keyframes orbit-3 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-orbit-1 {
+  animation: orbit-1 15s linear infinite;
+}
+.animate-orbit-2 {
+  animation: orbit-2 20s linear infinite;
+}
+.animate-orbit-3 {
+  animation: orbit-3 25s linear infinite;
+}
+
 /* Gradient text shimmer */
 .text-shimmer {
   background: linear-gradient(

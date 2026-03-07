@@ -54,11 +54,35 @@ function GooglePartnerBadge() {
   );
 }
 
+function MetaPartnerBadge() {
+  return (
+    <a
+      href="https://www.facebook.com/business/partner-directory"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 px-5 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-[#0081FB]/30 transition-colors"
+    >
+      {/* Meta infinity logo */}
+      <svg viewBox="0 0 36 20" className="w-7 h-5 flex-shrink-0" fill="none">
+        <path
+          d="M8.14 0C3.57 0 0 4.53 0 10c0 5.47 3.57 10 8.14 10 2.78 0 5-1.64 6.86-4.12L18 11.46l2.99 4.42C22.86 18.36 25.08 20 27.86 20 32.43 20 36 15.47 36 10c0-5.47-3.57-10-8.14-10-2.78 0-5 1.64-6.87 4.12L18 8.54l-3-4.42C13.14 1.64 10.92 0 8.14 0zm.2 4.3c1.4 0 2.9 1.08 4.28 3.1l1.2 1.78-3.47 5.12c-1.44 2.01-2.72 2.44-3.78 2.44-2.52 0-4.08-3.16-4.08-6.74S3.9 4.3 6.34 4.3h2zm21.32 0c2.44 0 4.05 3.16 4.05 6.7 0 3.58-1.56 6.74-4.08 6.74-1.06 0-2.34-.43-3.78-2.44l-3.47-5.12 1.2-1.78c1.38-2.02 2.88-3.1 4.28-3.1h1.8z"
+          fill="#0081FB"
+        />
+      </svg>
+      <div className="flex flex-col">
+        <span className="text-[10px] text-brand-muted uppercase tracking-wider leading-tight">Meta</span>
+        <span className="text-xs font-semibold text-brand-text leading-tight">Business Partner</span>
+      </div>
+    </a>
+  );
+}
+
 export default function PartnerBadges() {
   return (
     <div className="flex flex-wrap items-center gap-4">
       <HubSpotBadge />
       <GooglePartnerBadge />
+      <MetaPartnerBadge />
     </div>
   );
 }

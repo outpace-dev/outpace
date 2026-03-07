@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
 import AccentHeading from "@/components/AccentHeading";
-import ParticleField from "@/components/ParticleField";
+import HeroSection from "@/components/HeroSection";
 import GlowOrb from "@/components/GlowOrb";
 import TiltCard from "@/components/TiltCard";
 import CountUp from "@/components/CountUp";
@@ -145,62 +145,7 @@ export default function HomePage() {
   return (
     <>
       {/* ═══════ HERO ═══════ */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-brand-darkest" />
-        <ParticleField />
-        <GlowOrb color="rgba(34, 211, 238, 0.12)" size={600} top="-20%" left="-10%" duration={10} />
-        <GlowOrb color="rgba(52, 211, 153, 0.08)" size={500} bottom="-20%" right="-10%" delay={2} duration={12} />
-        <GlowOrb color="rgba(8, 145, 178, 0.1)" size={300} top="40%" right="20%" delay={4} duration={9} />
-
-        <div className="relative z-10 max-w-6xl mx-auto px-4 text-center pt-20">
-          <AnimatedSection>
-            <p className="text-brand-cyan-bright font-semibold text-sm tracking-widest uppercase mb-6">
-              Full-Spectrum Business Development
-            </p>
-          </AnimatedSection>
-
-          <AccentHeading
-            as="h1"
-            text="We don't just market your business. We **grow** it."
-            className="text-5xl sm:text-7xl lg:text-8xl font-extrabold font-display tracking-tight leading-[1.1] text-brand-text"
-            delay={0.1}
-          />
-
-          <AnimatedSection delay={0.3}>
-            <p className="mt-8 text-lg sm:text-xl text-brand-muted max-w-2xl mx-auto leading-relaxed">
-              Strategy, lead generation, sales enablement, content, retention, and digital presence — all under one roof.
-              One partner. One pipeline. Real revenue.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.4}>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <MagneticButton>
-                <Link
-                  href="/contact"
-                  className="group px-8 py-4 bg-gradient-to-r from-brand-cyan to-brand-teal hover:from-brand-cyan-bright hover:to-brand-cyan text-white font-semibold rounded-lg transition-all duration-300 inline-flex items-center gap-2 text-lg shadow-lg shadow-brand-cyan/25 hover:shadow-brand-cyan/40 hover:scale-[1.02] btn-ripple"
-                >
-                  Book a Discovery Call
-                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </MagneticButton>
-              <MagneticButton>
-                <Link
-                  href="/what-we-do"
-                  className="px-8 py-4 border border-brand-border hover:border-brand-cyan/50 text-brand-muted hover:text-white font-semibold rounded-lg transition-all duration-300 text-lg hover:bg-white/5"
-                >
-                  Explore Services
-                </Link>
-              </MagneticButton>
-            </div>
-          </AnimatedSection>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-brand-border rounded-full flex justify-center pt-2">
-            <div className="w-1 h-2 bg-brand-muted rounded-full" />
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ═══════ MARQUEE ═══════ */}
       <Marquee />
