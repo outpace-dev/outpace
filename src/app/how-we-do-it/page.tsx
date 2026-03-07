@@ -39,7 +39,7 @@ const steps = [
     glowColor: "rgba(34, 211, 238, 0.12)",
     desc: "Every engagement starts the same way — we listen. Before we touch a single campaign, we audit your business, your sales process, your retention metrics, and where the real opportunities are hiding.",
     bullets: [
-      { icon: FileText, text: "Deep-dive business audit & USP documentation" },
+      { icon: FileText, text: "Full business audit — what makes you different, documented" },
       { icon: Target, text: "Target market identification & competitive mapping" },
       { icon: BarChart3, text: "Revenue leak analysis — where are you losing deals?" },
       { icon: Users, text: "Stakeholder interviews & team capability assessment" },
