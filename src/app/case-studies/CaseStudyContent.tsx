@@ -120,13 +120,19 @@ export default function CaseStudyContent() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28">
           <AnimatedSection>
-            <Image
-              src="/images/cube-logo-wide.png"
-              alt="Cube Printing"
-              width={180}
-              height={70}
-              className="mb-8"
-            />
+            <div className="flex items-center gap-3 mb-8">
+              <Image
+                src="/images/cube-logo.png"
+                alt="Cube Printing"
+                width={48}
+                height={48}
+                className="rounded-lg"
+              />
+              <div>
+                <span className="text-white font-extrabold text-2xl tracking-wide">CUBE</span>
+                <p className="text-[#D4A014] text-[10px] font-semibold tracking-[0.2em] uppercase">Design &middot; Print &middot; Package</p>
+              </div>
+            </div>
             <p className="text-brand-cyan-bright font-semibold text-sm uppercase tracking-[0.2em] mb-6">
               Case Study
             </p>
