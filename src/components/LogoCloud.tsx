@@ -40,20 +40,17 @@ export default function LogoCloud({
                 className="transition-all duration-300"
                 style={{
                   fontSize: size,
-                  color: "rgb(148 163 184 / 0.4)",
-                  filter: "grayscale(1) brightness(0.7)",
+                  color: logo.brandColor,
+                  filter: "grayscale(0) brightness(1)",
+                  opacity: 0.7,
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget;
-                  el.style.color = logo.brandColor;
-                  el.style.filter = "grayscale(0) brightness(1)";
                   el.style.opacity = "1";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget;
-                  el.style.color = "rgb(148 163 184 / 0.4)";
-                  el.style.filter = "grayscale(1) brightness(0.7)";
-                  el.style.opacity = "";
+                  el.style.opacity = "0.7";
                 }}
               >
                 {cloneElement(logo.icon, { size } as Record<string, unknown>)}

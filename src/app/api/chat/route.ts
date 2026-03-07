@@ -42,8 +42,9 @@ function deepMergeConsultationData(
   }
 
   for (const branch of [
-    "leadGeneration", "digitalPresence", "systemsOperations",
-    "clientRetention", "contentBrand", "closing", "qualification",
+    "businessAnalysis", "leadGeneration", "digitalPresence", "systemsOperations",
+    "contentBrand", "aiGrowthTools", "salesEnablement", "clientRetention",
+    "brandPositioning", "partnerships", "closing", "qualification",
   ] as const) {
     if (updates[branch]) {
       (merged as Record<string, unknown>)[branch] = {
@@ -65,13 +66,16 @@ function deepMergeConsultationData(
 
 // ─── Shared enums ───
 const painBranchValues = [
-  "lead_generation", "digital_presence", "systems_operations",
-  "client_retention", "content_brand",
+  "business_analysis", "lead_generation", "digital_presence",
+  "systems_operations", "content_brand", "ai_growth_tools",
+  "sales_enablement", "client_retention", "brand_positioning", "partnerships",
 ] as const;
 
 const stageValues = [
-  "opening", "branch_detection", "lead_generation", "digital_presence",
-  "systems_operations", "client_retention", "content_brand", "closing", "complete",
+  "opening", "branch_detection", "business_analysis", "lead_generation",
+  "digital_presence", "systems_operations", "content_brand", "ai_growth_tools",
+  "sales_enablement", "client_retention", "brand_positioning", "partnerships",
+  "closing", "complete",
 ] as const;
 
 export async function POST(req: Request) {
@@ -111,6 +115,13 @@ export async function POST(req: Request) {
           currentStage: z.enum(stageValues).optional(),
           newInsight: z.string().optional(),
           questionAsked: z.string().optional(),
+          businessAnalysis: z.object({
+            growthStage: z.string().nullable().optional(),
+            competitivePosition: z.string().nullable().optional(),
+            uspClarity: z.string().nullable().optional(),
+            targetMarketClarity: z.string().nullable().optional(),
+            grantEligibility: z.string().nullable().optional(),
+          }).optional(),
           leadGeneration: z.object({
             currentLeadSources: z.string().nullable().optional(),
             outboundProcess: z.string().nullable().optional(),
@@ -131,17 +142,41 @@ export async function POST(req: Request) {
             dataSilos: z.string().nullable().optional(),
             automatedFollowUps: z.string().nullable().optional(),
           }).optional(),
+          contentBrand: z.object({
+            contentStrategy: z.string().nullable().optional(),
+            linkedInActivity: z.string().nullable().optional(),
+            videoInvestment: z.string().nullable().optional(),
+            uspCommunication: z.string().nullable().optional(),
+          }).optional(),
+          aiGrowthTools: z.object({
+            currentAIUsage: z.string().nullable().optional(),
+            salesProcessAutomation: z.string().nullable().optional(),
+            teamOpenness: z.string().nullable().optional(),
+            aiToolsInterest: z.string().nullable().optional(),
+          }).optional(),
+          salesEnablement: z.object({
+            salesProcess: z.string().nullable().optional(),
+            discoveryCallQuality: z.string().nullable().optional(),
+            objectionHandling: z.string().nullable().optional(),
+            pipelineReview: z.string().nullable().optional(),
+          }).optional(),
           clientRetention: z.object({
             repeatRevenuePercentage: z.string().nullable().optional(),
             followUpProcess: z.string().nullable().optional(),
             npsScore: z.string().nullable().optional(),
             upsellPrograms: z.string().nullable().optional(),
           }).optional(),
-          contentBrand: z.object({
-            contentStrategy: z.string().nullable().optional(),
-            linkedInActivity: z.string().nullable().optional(),
-            videoInvestment: z.string().nullable().optional(),
-            uspCommunication: z.string().nullable().optional(),
+          brandPositioning: z.object({
+            currentPositioning: z.string().nullable().optional(),
+            messagingConsistency: z.string().nullable().optional(),
+            icpClarity: z.string().nullable().optional(),
+            gtmReadiness: z.string().nullable().optional(),
+          }).optional(),
+          partnerships: z.object({
+            referralStructure: z.string().nullable().optional(),
+            partnerRelationships: z.string().nullable().optional(),
+            coMarketingActivity: z.string().nullable().optional(),
+            channelStrategy: z.string().nullable().optional(),
           }).optional(),
           closing: z.object({
             topPriorityFix: z.string().nullable().optional(),

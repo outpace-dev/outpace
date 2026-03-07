@@ -301,13 +301,18 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
 
   // Progress calculation
   const stageProgress: Record<string, number> = {
-    opening: 15,
-    branch_detection: 30,
-    lead_generation: 55,
-    digital_presence: 55,
-    systems_operations: 55,
-    client_retention: 55,
-    content_brand: 55,
+    opening: 10,
+    branch_detection: 25,
+    business_analysis: 50,
+    lead_generation: 50,
+    digital_presence: 50,
+    systems_operations: 50,
+    content_brand: 50,
+    ai_growth_tools: 50,
+    sales_enablement: 50,
+    client_retention: 50,
+    brand_positioning: 50,
+    partnerships: 50,
     closing: 80,
     complete: 100,
   };
@@ -316,11 +321,16 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
   const stageLabels: Record<string, string> = {
     opening: "Getting to know you",
     branch_detection: "Identifying challenges",
+    business_analysis: "Business analysis deep-dive",
     lead_generation: "Lead generation deep-dive",
     digital_presence: "Digital presence deep-dive",
     systems_operations: "Systems & operations deep-dive",
+    content_brand: "Content & video deep-dive",
+    ai_growth_tools: "AI & automation deep-dive",
+    sales_enablement: "Sales process deep-dive",
     client_retention: "Client retention deep-dive",
-    content_brand: "Content & brand deep-dive",
+    brand_positioning: "Brand & positioning deep-dive",
+    partnerships: "Partnerships & referrals deep-dive",
     closing: "Wrapping up",
     complete: "Consultation complete",
   };
