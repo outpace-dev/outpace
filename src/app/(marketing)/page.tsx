@@ -6,7 +6,6 @@ import AccentHeading from "@/components/AccentHeading";
 import ParticleField from "@/components/ParticleField";
 import GlowOrb from "@/components/GlowOrb";
 import TiltCard from "@/components/TiltCard";
-import CountUp from "@/components/CountUp";
 import MagneticButton from "@/components/MagneticButton";
 import Marquee from "@/components/Marquee";
 import LogoCloud from "@/components/LogoCloud";
@@ -118,13 +117,6 @@ const process = [
     title: "Drive",
     desc: "We optimise, iterate, and scale what works. Monthly reviews, transparent reporting — what's winning gets doubled down, what's not gets cut.",
   },
-];
-
-const stats = [
-  { value: 900, suffix: "+", label: "Contacts Reached" },
-  { value: 115, suffix: "", label: "Companies Targeted" },
-  { value: 3, suffix: "", label: "Video Series Produced" },
-  { value: 100, suffix: "%", label: "Client Retention" },
 ];
 
 const donts = [
@@ -458,26 +450,6 @@ export default function HomePage() {
                 See our full process
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ═══════ STATS ═══════ */}
-      <section className="py-24 sm:py-32 bg-brand-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center group">
-                  <p className="text-4xl sm:text-5xl font-extrabold font-display text-brand-cyan-bright">
-                    <CountUp end={s.value} suffix={s.suffix} />
-                  </p>
-                  <p className="mt-2 text-sm text-brand-muted group-hover:text-brand-text transition-colors">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
             </div>
           </AnimatedSection>
         </div>
