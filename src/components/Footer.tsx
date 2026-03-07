@@ -14,7 +14,14 @@ const footerLinks = [
       { label: "What We Do", href: "/what-we-do" },
       { label: "Who We Are", href: "/who-we-are" },
       { label: "How We Do It", href: "/how-we-do-it" },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Blog", href: "/blog" },
       { label: "Case Studies", href: "/case-studies/cube" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -39,7 +46,7 @@ export default function Footer() {
   return (
     <footer className="bg-brand-darkest border-t border-brand-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="inline-block">
               <AnimatedLogo className="text-3xl" />

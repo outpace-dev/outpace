@@ -11,6 +11,7 @@ const links = [
   { href: "/what-we-do", label: "What We Do" },
   { href: "/how-we-do-it", label: "How We Do It" },
   { href: "/who-we-are", label: "Who We Are" },
+  { href: "/blog", label: "Insights" },
 ];
 
 const caseStudies = [
