@@ -1,15 +1,42 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { motion } from "framer-motion";
 
+type AuthMode = "password" | "magic-link";
+
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [mode, setMode] = useState<AuthMode>("password");
   const [status, setStatus] = useState<"idle" | "loading" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handlePasswordLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !password) return;
+
+    setStatus("loading");
+    setErrorMsg("");
+
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
+
+    if (error) {
+      setStatus("error");
+      setErrorMsg(error.message);
+    } else {
+      router.push("/portal");
+    }
+  };
+
+  const handleMagicLink = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim()) return;
 
@@ -85,10 +112,12 @@ export default function LoginPage() {
             <>
               <h2 className="text-xl font-semibold text-brand-text mb-1">Sign in</h2>
               <p className="text-brand-muted text-sm mb-6">
-                Enter your email and we&apos;ll send you a magic link.
+                {mode === "password"
+                  ? "Enter your credentials to access the portal."
+                  : "Enter your email and we\u2019ll send you a magic link."}
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={mode === "password" ? handlePasswordLogin : handleMagicLink} className="space-y-4">
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-brand-muted mb-1.5">
                     Email address
@@ -104,13 +133,30 @@ export default function LoginPage() {
                   />
                 </div>
 
+                {mode === "password" && (
+                  <div>
+                    <label htmlFor="password" className="block text-sm font-medium text-brand-muted mb-1.5">
+                      Password
+                    </label>
+                    <input
+                      id="password"
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="••••••••"
+                      required
+                      className="w-full px-4 py-3 rounded-xl bg-brand-darkest border border-brand-border text-brand-text placeholder:text-brand-muted/40 focus:border-brand-cyan focus:ring-1 focus:ring-brand-cyan/30 outline-none transition-all text-sm"
+                    />
+                  </div>
+                )}
+
                 {status === "error" && (
                   <p className="text-red-400 text-sm">{errorMsg || "Something went wrong. Please try again."}</p>
                 )}
 
                 <button
                   type="submit"
-                  disabled={status === "loading" || !email.trim()}
+                  disabled={status === "loading" || !email.trim() || (mode === "password" && !password)}
                   className="w-full py-3 rounded-xl bg-gradient-to-r from-brand-cyan to-brand-teal text-white font-semibold text-sm hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {status === "loading" ? (
@@ -119,13 +165,24 @@ export default function LoginPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Sending...
+                      {mode === "password" ? "Signing in..." : "Sending..."}
                     </span>
+                  ) : mode === "password" ? (
+                    "Sign in"
                   ) : (
                     "Send magic link"
                   )}
                 </button>
               </form>
+
+              <div className="mt-4 text-center">
+                <button
+                  onClick={() => { setMode(mode === "password" ? "magic-link" : "password"); setStatus("idle"); setErrorMsg(""); }}
+                  className="text-brand-cyan text-sm hover:text-brand-cyan-bright transition-colors"
+                >
+                  {mode === "password" ? "Use magic link instead" : "Use password instead"}
+                </button>
+              </div>
             </>
           )}
         </div>
