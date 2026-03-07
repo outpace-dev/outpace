@@ -73,6 +73,7 @@ export const PAGE_CONFIGS: Record<string, DiscoveryPageConfig> = {
       "Ireland's leading independent security and safety provider deserves a growth strategy to match. Let's identify your biggest opportunities.",
     companyLogo: "https://rayn.ie/wp-content/uploads/2025/06/RAYN_Logo_Colour.svg",
     companyName: "RAYN Safety & Security",
+    heroImage: "https://rayn.ie/wp-content/uploads/2025/06/rayn-security-limerick.png",
     companyDescription:
       "Ireland's leading independent security and safety provider. End-to-end fire safety and security solutions — CCTV, access control, intruder alarms, fire protection, and TotalSafe by RAYN. Offices in Limerick and Dublin.",
     contactName: "Ray Nash",

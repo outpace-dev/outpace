@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import LogoCloud from "@/components/LogoCloud";
 import { FOOTER_LOGOS } from "@/lib/brand-logos";
 import PartnerBadges from "@/components/PartnerBadges";
+import AnimatedLogo from "@/components/AnimatedLogo";
 
 const footerLinks = [
   {
@@ -40,8 +41,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
           <div className="md:col-span-2">
-            <Link href="/" className="text-3xl tracking-tight text-shimmer inline-block">
-              <span className="font-extrabold">OUT</span><span className="font-light">PACE</span><span className="text-brand-cyan-bright font-extrabold">.</span>
+            <Link href="/" className="inline-block">
+              <AnimatedLogo className="text-3xl" />
             </Link>
             <p className="mt-4 text-brand-muted max-w-md leading-relaxed">
               Full-spectrum business development for companies that want to grow

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, LogIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import AnimatedLogo from "@/components/AnimatedLogo";
 
 const links = [
   { href: "/what-we-do", label: "What We Do" },
@@ -53,15 +54,11 @@ export default function Navbar() {
           }`}
         >
           <Link href="/" className="flex items-center gap-2">
-            <span
-              className={`tracking-tight text-shimmer transition-all duration-300 ${
+            <AnimatedLogo
+              className={`transition-all duration-300 ${
                 scrolled ? "text-2xl" : "text-3xl"
               }`}
-            >
-              <span className="font-extrabold">OUT</span>
-              <span className="font-light">PACE</span>
-              <span className="text-brand-cyan-bright font-extrabold">.</span>
-            </span>
+            />
           </Link>
 
           <div className="hidden md:flex items-center gap-1">

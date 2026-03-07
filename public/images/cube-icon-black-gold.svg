@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="600" height="600">
+  <!-- Gold background with rounded corners -->
+  <rect width="200" height="200" rx="24" fill="#F5A623"/>
+
+  <!-- 3D Hexagonal C logo - back depth faces (visible through opening) -->
+  <!-- Inner wall -->
+  <path d="M137 80 L149 73 L149 127 L137 120 Z" fill="#333"/>
+  <!-- Top edge bevel -->
+  <path d="M160 66 L149 73 L137 80 Z" fill="#2A2A2A"/>
+  <!-- Bottom edge bevel -->
+  <path d="M160 134 L149 127 L137 120 Z" fill="#2A2A2A"/>
+
+  <!-- Main hexagonal C shape (front face) -->
+  <path d="
+    M160 66
+    L100 32
+    L40 66
+    L40 134
+    L100 168
+    L160 134
+    L137 120
+    L100 142
+    L65 120
+    L65 80
+    L100 58
+    L137 80
+    Z
+  " fill="#1A1A1A"/>
+</svg>
