@@ -15,6 +15,7 @@ import PhoneMockup from "@/components/PhoneMockup";
 import VideoShowcase from "@/components/VideoShowcase";
 import SocialMediaGrid from "@/components/SocialMediaGrid";
 import TimelineStep from "@/components/TimelineStep";
+import HexagonGrid from "@/components/HexagonGrid";
 import {
   ArrowRight,
   Mail,
@@ -120,20 +121,19 @@ export default function CaseStudyContent() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28">
           <AnimatedSection>
-            <div className="flex items-center gap-3 mb-8">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-black/60 border border-[#D4A014]/30 backdrop-blur-sm mb-8">
               <Image
                 src="/images/cube-logo.png"
                 alt="Cube Printing"
-                width={48}
-                height={48}
-                className="rounded-lg"
+                width={40}
+                height={40}
               />
-              <div>
-                <span className="text-white font-extrabold text-2xl tracking-wide">CUBE</span>
-                <p className="text-[#D4A014] text-[10px] font-semibold tracking-[0.2em] uppercase">Design &middot; Print &middot; Package</p>
+              <div className="border-l border-[#D4A014]/30 pl-3">
+                <span className="text-white font-extrabold text-xl tracking-wider">CUBE</span>
+                <p className="text-[#D4A014] text-[9px] font-semibold tracking-[0.25em] uppercase leading-tight">Design &middot; Print &middot; Package</p>
               </div>
             </div>
-            <p className="text-brand-cyan-bright font-semibold text-sm uppercase tracking-[0.2em] mb-6">
+            <p className="text-[#D4A014] font-semibold text-sm uppercase tracking-[0.2em] mb-6">
               Case Study
             </p>
           </AnimatedSection>
@@ -155,15 +155,15 @@ export default function CaseStudyContent() {
           <AnimatedSection delay={0.4}>
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-brand-muted">
               <span className="flex items-center gap-2">
-                <MapPin size={14} className="text-brand-cyan-bright" />
+                <MapPin size={14} className="text-[#D4A014]" />
                 Limerick, Ireland
               </span>
               <span className="flex items-center gap-2">
-                <Factory size={14} className="text-brand-cyan-bright" />
+                <Factory size={14} className="text-[#D4A014]" />
                 Med-Tech Printing
               </span>
               <span className="flex items-center gap-2">
-                <Shield size={14} className="text-brand-cyan-bright" />
+                <Shield size={14} className="text-[#D4A014]" />
                 ISO 9001 Certified
               </span>
             </div>
@@ -222,24 +222,24 @@ export default function CaseStudyContent() {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/5 border border-brand-cyan/20 text-xs text-brand-cyan font-medium">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4A014]/10 border border-[#D4A014]/30 text-xs text-[#D4A014] font-medium">
                     <Shield size={14} /> ISO 9001
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/5 border border-brand-cyan/20 text-xs text-brand-cyan font-medium">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4A014]/10 border border-[#D4A014]/30 text-xs text-[#D4A014] font-medium">
                     <Factory size={14} /> MedTech Specialist
                   </div>
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/5 border border-brand-cyan/20 text-xs text-brand-cyan font-medium">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#D4A014]/10 border border-[#D4A014]/30 text-xs text-[#D4A014] font-medium">
                     <MapPin size={14} /> Limerick, IE
                   </div>
                 </div>
               </div>
 
-              <div className="mt-6 pt-6 border-t border-brand-border/30">
+              <div className="mt-6 pt-6 border-t border-[#D4A014]/20">
                 <a
                   href="https://cube.irish"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-brand-cyan-bright hover:underline"
+                  className="inline-flex items-center gap-2 text-sm text-[#D4A014] hover:text-[#e8b82e] hover:underline transition-colors"
                 >
                   Visit cube.irish
                   <ExternalLink size={14} />
@@ -250,8 +250,33 @@ export default function CaseStudyContent() {
         </div>
       </section>
 
+      {/* 3.5. HEXAGON GRID — Inside Cube */}
+      <section className="py-20 sm:py-28 bg-brand-darkest relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(212,160,20,0.04)_0%,_transparent_60%)]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <div className="lg:col-span-5">
+              <AnimatedSection>
+                <p className="text-[#D4A014] font-semibold text-sm uppercase tracking-[0.2em] mb-4">Inside the facility</p>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text leading-tight">
+                  Three decades of <span className="text-[#D4A014]">precision.</span>
+                </h2>
+                <p className="mt-6 text-brand-muted leading-relaxed">
+                  From design to print to packaging — Cube&apos;s state-of-the-art facility in
+                  Limerick handles every stage of production under one roof. ISO 9001 certified
+                  with cGMP processes built for the med-tech sector.
+                </p>
+              </AnimatedSection>
+            </div>
+            <div className="lg:col-span-7">
+              <HexagonGrid />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. THE BRIEF */}
-      <section className="py-20 sm:py-28 bg-brand-darkest">
+      <section className="py-20 sm:py-28 bg-brand-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
@@ -301,12 +326,12 @@ export default function CaseStudyContent() {
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {stats.map((stat, i) => (
               <AnimatedSection key={stat.label} delay={i * 0.08}>
-                <div className="relative p-6 sm:p-8 rounded-2xl bg-brand-dark/80 border border-brand-border/50 text-center overflow-hidden group hover:border-brand-cyan/30 transition-colors">
+                <div className="relative p-6 sm:p-8 rounded-2xl bg-brand-dark/80 border border-brand-border/50 text-center overflow-hidden group hover:border-[#D4A014]/40 transition-colors">
                   <stat.icon
-                    className="absolute top-3 right-3 text-brand-cyan/10"
+                    className="absolute top-3 right-3 text-[#D4A014]/10"
                     size={28}
                   />
-                  <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-brand-cyan-bright">
+                  <p className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display text-[#D4A014]">
                     <CountUp end={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="mt-2 text-xs sm:text-sm text-brand-muted">
@@ -366,7 +391,7 @@ export default function CaseStudyContent() {
                   key={f.title}
                   className="p-6 rounded-xl bg-brand-dark/50 border border-brand-border/30"
                 >
-                  <h4 className="text-sm font-bold text-brand-cyan-bright mb-2">
+                  <h4 className="text-sm font-bold text-[#D4A014] mb-2">
                     {f.title}
                   </h4>
                   <p className="text-sm text-brand-muted leading-relaxed">
@@ -449,15 +474,15 @@ export default function CaseStudyContent() {
                 </p>
                 <div className="mt-6 flex flex-wrap gap-4">
                   <span className="flex items-center gap-2 text-sm text-brand-muted">
-                    <Mail size={16} className="text-brand-cyan-bright" />
+                    <Mail size={16} className="text-[#D4A014]" />
                     B2B Email Sequences
                   </span>
                   <span className="flex items-center gap-2 text-sm text-brand-muted">
-                    <Phone size={16} className="text-brand-cyan-bright" />
+                    <Phone size={16} className="text-[#D4A014]" />
                     AI Outbound Calling
                   </span>
                   <span className="flex items-center gap-2 text-sm text-brand-muted">
-                    <Target size={16} className="text-brand-cyan-bright" />
+                    <Target size={16} className="text-[#D4A014]" />
                     Custom Prospect Lists
                   </span>
                 </div>
@@ -469,10 +494,10 @@ export default function CaseStudyContent() {
                 {funnelSteps.map((step) => (
                   <div key={step.label} className="flex items-center gap-4">
                     <div
-                      className="h-14 rounded-xl bg-gradient-to-r from-brand-cyan/20 to-brand-emerald/10 border border-brand-cyan/20 flex items-center px-5"
+                      className="h-14 rounded-xl bg-gradient-to-r from-[#D4A014]/20 to-[#D4A014]/5 border border-[#D4A014]/25 flex items-center px-5"
                       style={{ width: step.width }}
                     >
-                      <span className="text-lg font-bold text-brand-cyan-bright font-display mr-3">
+                      <span className="text-lg font-bold text-[#D4A014] font-display mr-3">
                         {step.display ? (
                           step.display
                         ) : (
@@ -511,10 +536,10 @@ export default function CaseStudyContent() {
       <section className="py-20 sm:py-28 bg-brand-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-brand-cyan/10 to-brand-emerald/5 border border-brand-cyan/20">
+            <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-[#D4A014]/10 to-[#D4A014]/5 border border-[#D4A014]/25">
               <div className="flex items-start gap-4">
                 <CheckCircle2
-                  className="text-brand-cyan-bright flex-shrink-0 mt-1"
+                  className="text-[#D4A014] flex-shrink-0 mt-1"
                   size={32}
                 />
                 <div>
@@ -532,17 +557,17 @@ export default function CaseStudyContent() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-brand-cyan/10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-brand-cyan/10">
-                  <TrendingUp className="text-brand-cyan-bright flex-shrink-0" size={18} />
+              <div className="mt-8 pt-8 border-t border-[#D4A014]/15 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-[#D4A014]/15">
+                  <TrendingUp className="text-[#D4A014] flex-shrink-0" size={18} />
                   <span className="text-sm font-medium text-brand-text">New MedTech Revenue</span>
                 </div>
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-brand-cyan/10">
-                  <Globe className="text-brand-cyan-bright flex-shrink-0" size={18} />
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-[#D4A014]/15">
+                  <Globe className="text-[#D4A014] flex-shrink-0" size={18} />
                   <span className="text-sm font-medium text-brand-text">Professional Brand Presence</span>
                 </div>
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-brand-cyan/10">
-                  <Zap className="text-brand-cyan-bright flex-shrink-0" size={18} />
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-[#D4A014]/15">
+                  <Zap className="text-[#D4A014] flex-shrink-0" size={18} />
                   <span className="text-sm font-medium text-brand-text">Repeatable Pipeline</span>
                 </div>
               </div>

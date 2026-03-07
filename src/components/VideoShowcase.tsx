@@ -1,66 +1,92 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Play, Users, MessageSquareQuote, Factory } from "lucide-react";
+import { Play, Factory, Users, MessageSquareQuote, Clapperboard } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import TiltCard from "@/components/TiltCard";
 
 const videos = [
   {
-    title: "Leadership Series",
-    description: "Management interviews showcasing industry expertise and vision.",
+    title: "CUBE Overview",
+    description: "A look inside Ireland's leading print & packaging company.",
+    youtubeId: "9KidA_-FOMA",
+    icon: Clapperboard,
+    duration: "1:42",
+  },
+  {
+    title: "Facility Showcase",
+    description: "State-of-the-art equipment and cGMP-certified production lines.",
+    youtubeId: "knwec-XVgZU",
+    icon: Factory,
+    duration: "3:32",
+  },
+  {
+    title: "Meet the Team",
+    description: "The people behind three decades of printing excellence.",
+    youtubeId: "KkXUwHtjTbk",
     icon: Users,
-    gradient: "from-brand-cyan/20 via-brand-teal/10 to-transparent",
-    accentColor: "text-brand-cyan-bright",
+    duration: "4:33",
   },
   {
     title: "Client Testimonial",
-    description: "Trust-building social proof from satisfied partners.",
+    description: "EI Electronics on their partnership with Cube.",
+    youtubeId: "g-6RHTCuanc",
     icon: MessageSquareQuote,
-    gradient: "from-brand-emerald/20 via-brand-teal/10 to-transparent",
-    accentColor: "text-brand-emerald",
-  },
-  {
-    title: "Facility Tour",
-    description: "Demonstrating world-class printing capabilities and equipment.",
-    icon: Factory,
-    gradient: "from-purple-500/20 via-brand-cyan/10 to-transparent",
-    accentColor: "text-purple-400",
+    duration: "4:25",
   },
 ];
 
 export default function VideoShowcase() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {videos.map((video, i) => (
-        <AnimatedSection key={video.title} delay={i * 0.1}>
+        <AnimatedSection key={video.youtubeId} delay={i * 0.1}>
           <TiltCard className="h-full">
-            <div className={`relative aspect-video rounded-2xl overflow-hidden bg-gradient-to-br ${video.gradient} border border-brand-border/50 group cursor-pointer`}>
-              {/* Play button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
-                  whileHover={{ scale: 1.15 }}
-                >
-                  <Play className="text-white ml-1" size={24} fill="currentColor" />
-                </motion.div>
+            <a
+              href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              {/* YouTube thumbnail */}
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-brand-border/50">
+                <img
+                  src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                  alt={video.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-300" />
+
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <motion.div
+                    className="w-14 h-14 rounded-full bg-[#D4A014]/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/30"
+                    whileHover={{ scale: 1.15 }}
+                  >
+                    <Play className="text-white ml-1" size={22} fill="currentColor" />
+                  </motion.div>
+                </div>
+
+                {/* Duration badge */}
+                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-white text-xs font-mono">
+                  {video.duration}
+                </div>
               </div>
 
-              {/* Icon watermark */}
-              <video.icon
-                className="absolute top-4 right-4 text-white/10"
-                size={40}
-              />
-            </div>
-
-            <div className="mt-4 px-1">
-              <h4 className={`font-bold text-lg ${video.accentColor}`}>
-                {video.title}
-              </h4>
-              <p className="text-sm text-brand-muted mt-1 leading-relaxed">
-                {video.description}
-              </p>
-            </div>
+              <div className="mt-4 px-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <video.icon className="text-[#D4A014]" size={16} />
+                  <h4 className="font-bold text-[#D4A014]">
+                    {video.title}
+                  </h4>
+                </div>
+                <p className="text-sm text-brand-muted leading-relaxed">
+                  {video.description}
+                </p>
+              </div>
+            </a>
           </TiltCard>
         </AnimatedSection>
       ))}
