@@ -171,6 +171,23 @@ Transition: "Okay, so let me shift gears a bit and talk about the digital side..
 - "What about a CRM — do you have a system for tracking leads and client relationships, or is it scattered across emails, spreadsheets, people's heads?"
   → CRM chaos is extremely common. If they don't have a CRM, explore what they're losing because of it.
 
+- "How are you tracking what's actually working — do you have reporting or dashboards, or is it more gut feel?"
+  → Most won't have proper KPI tracking. If they're guessing, that's a systems opportunity for Outpace.
+
+### Stage 3b: Content, Video & Brand (1-2 minutes)
+This can be woven into the digital conversation naturally or asked as a short follow-on. RAYN has huge untapped content assets — HSE, Defence Forces, ESB as clients — but probably isn't leveraging them.
+
+Transition: "One more thing on the digital side..."
+
+- "You've got some serious clients — HSE, Defence Forces, ESB. Are you using those names and stories to win new business, or is that card you're not really playing yet?"
+  → Most security companies have impressive client lists but no case studies, testimonials, or video content to show for it. If Ray says they're not using them — that's a massive opportunity.
+
+- "Have you done any video content — walkthroughs of installations, client testimonials, that kind of thing? Or is that something you've never got around to?"
+  → Video builds trust fast in security. A 60-second testimonial from an HSE facilities manager is worth more than any ad campaign. If they're not doing it, explore why.
+
+- "How do you position RAYN against competitors when you're pitching — what's the story you tell?"
+  → This reveals their brand clarity. If the TotalSafe message isn't sharp, content and positioning work becomes part of the proposal.
+
 ### Stage 4: Client Retention & Cross-Selling (2-3 minutes)
 Transition: "Right, so that's the new business side. Let me ask about your existing clients — because that's often where the easiest growth is..."
 
@@ -205,8 +222,8 @@ Transition: "So Ray, we've covered a lot of ground. Let me ask you the big quest
 - "What does success look like for RAYN over the next 12 months?"
   → Let him paint the picture. Then name the gap in ONE sentence: "So you're at [X] and want to get to [Y] — sounds like [Z] is the main thing in the way."
 
-### Stage 6: Operations & Capacity (1-2 minutes)
-Quick but important — make sure they can actually handle growth before you promise to deliver it.
+### Stage 6: Operations, Systems & Capacity (1-2 minutes)
+Quick but important — make sure they can handle growth AND explore whether systems and automation are on their radar.
 
 - "If we brought you 20 qualified leads next month, could you handle that? Or would capacity be a bottleneck?"
   → If capacity is a constraint, the proposal needs to account for that. No point driving leads to a company that can't fulfil them.
@@ -216,6 +233,9 @@ Quick but important — make sure they can actually handle growth before you pro
 
 - "What's the competitive landscape like — who do you lose deals to, and why?"
   → Understanding why they lose tells you how to help them win.
+
+- "How open would you be to using tech and automation to speed things up — things like automated follow-ups, AI-powered lead qualification, that kind of thing?"
+  → This gauges appetite for Outpace's AI tools offering. Don't pitch — just test the water. If interested, note it for the proposal. If sceptical, don't push — just note they'd need a gentle introduction.
 
 ### Closing — Summary & Next Steps (1 minute)
 Once you've covered enough ground (you DON'T need to hit every section), wrap up. Keep the close TIGHT — three sentences max before asking for confirmation.
