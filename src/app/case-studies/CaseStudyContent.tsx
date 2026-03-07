@@ -201,23 +201,27 @@ export default function CaseStudyContent() {
           "EMAIL",
           "BRAND",
         ]}
+        textColor="text-[#D4A014]/20"
+        dotColor="bg-[#D4A014]/30"
+        bgColor="bg-[#0e0e0e]"
+        borderColor="border-white/[0.06]"
       />
 
       {/* 3. CLIENT PROFILE */}
-      <section className="py-16 sm:py-20 bg-brand-dark">
+      <section className="py-16 sm:py-20 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <div className="p-8 sm:p-12 rounded-2xl bg-brand-dark/80 border border-brand-border/50 backdrop-blur-sm">
+            <div className="p-8 sm:p-12 rounded-2xl bg-white/[0.04] border border-white/[0.08] backdrop-blur-sm">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#D4A014]/10 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#D4A014] flex items-center justify-center">
                       <Image
                         src="/images/cube-logo.png"
                         alt="Cube Printing logo"
-                        width={56}
-                        height={56}
-                        className="object-contain"
+                        width={40}
+                        height={40}
+                        className="object-contain brightness-0"
                       />
                     </div>
                     <div>
@@ -267,7 +271,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 3.5. HEXAGON GRID — Inside Cube */}
-      <section className="py-20 sm:py-28 bg-brand-darkest relative overflow-hidden">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e] relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(212,160,20,0.04)_0%,_transparent_60%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12 lg:mb-16">
@@ -290,12 +294,13 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 4. THE BRIEF */}
-      <section className="py-20 sm:py-28 bg-brand-dark">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
               text="The **Brief.**"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
             />
             <AnimatedSection delay={0.2}>
               <p className="mt-6 text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
@@ -309,7 +314,7 @@ export default function CaseStudyContent() {
             {challenges.map((c, i) => (
               <AnimatedSection key={c.title} delay={i * 0.1}>
                 <TiltCard className="h-full">
-                  <div className="p-8 rounded-2xl bg-brand-dark/80 border border-brand-border/50 h-full">
+                  <div className="p-8 rounded-2xl bg-white/[0.04] border border-white/[0.08] h-full">
                     <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
                       <c.icon className="text-red-400" size={22} />
                     </div>
@@ -328,19 +333,20 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 5. STATS */}
-      <section className="py-20 sm:py-28 bg-brand-dark">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
               text="The **Numbers.**"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
             />
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {stats.map((stat, i) => (
               <AnimatedSection key={stat.label} delay={i * 0.08}>
-                <div className="relative p-6 sm:p-8 rounded-2xl bg-brand-dark/80 border border-brand-border/50 text-center overflow-hidden group hover:border-[#D4A014]/40 transition-colors">
+                <div className="relative p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-center overflow-hidden group hover:border-[#D4A014]/40 transition-colors">
                   <stat.icon
                     className="absolute top-3 right-3 text-[#D4A014]/10"
                     size={28}
@@ -359,12 +365,13 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 6. WEBSITE SHOWCASE */}
-      <section className="py-20 sm:py-28 bg-brand-darkest">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <AccentHeading
               text="A website that **converts.**"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
             />
             <AnimatedSection delay={0.2}>
               <p className="mt-6 text-lg text-brand-muted max-w-2xl leading-relaxed">
@@ -403,7 +410,7 @@ export default function CaseStudyContent() {
               ].map((f) => (
                 <div
                   key={f.title}
-                  className="p-6 rounded-xl bg-brand-dark/50 border border-brand-border/30"
+                  className="p-6 rounded-xl bg-white/[0.03] border border-white/[0.06]"
                 >
                   <h4 className="text-sm font-bold text-[#D4A014] mb-2">
                     {f.title}
@@ -419,15 +426,16 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 7. DIVIDER */}
-      <div className="gradient-divider" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[#D4A014]/30 to-transparent" />
 
       {/* 8. VIDEO PRODUCTION */}
-      <section className="py-20 sm:py-28 bg-brand-dark">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
               text="Content that builds **trust.**"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
             />
             <AnimatedSection delay={0.2}>
               <p className="mt-6 text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
@@ -450,12 +458,13 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 9. SOCIAL MEDIA */}
-      <section className="py-20 sm:py-28 bg-brand-darkest">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
               text="Building a brand **presence.**"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
             />
             <AnimatedSection delay={0.2}>
               <p className="mt-6 text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
@@ -471,13 +480,14 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 10. OUTBOUND & AI */}
-      <section className="py-20 sm:py-28 bg-brand-dark">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <AccentHeading
                 text="Outbound at **scale.**"
                 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+                accentColor="text-[#D4A014]"
               />
               <AnimatedSection delay={0.2}>
                 <p className="mt-6 text-brand-muted leading-relaxed">
@@ -531,12 +541,13 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 11. TIMELINE */}
-      <section className="py-20 sm:py-28 bg-brand-darkest">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
               text="The **journey.**"
               className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
             />
           </div>
 
@@ -547,7 +558,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 12. OUTCOME */}
-      <section className="py-20 sm:py-28 bg-brand-dark">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-[#D4A014]/10 to-[#D4A014]/5 border border-[#D4A014]/25">
@@ -572,15 +583,15 @@ export default function CaseStudyContent() {
               </div>
 
               <div className="mt-8 pt-8 border-t border-[#D4A014]/15 grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-[#D4A014]/15">
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black/30 border border-[#D4A014]/15">
                   <TrendingUp className="text-[#D4A014] flex-shrink-0" size={18} />
                   <span className="text-sm font-medium text-brand-text">New MedTech Revenue</span>
                 </div>
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-[#D4A014]/15">
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black/30 border border-[#D4A014]/15">
                   <Globe className="text-[#D4A014] flex-shrink-0" size={18} />
                   <span className="text-sm font-medium text-brand-text">Professional Brand Presence</span>
                 </div>
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-brand-darkest/50 border border-[#D4A014]/15">
+                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-black/30 border border-[#D4A014]/15">
                   <Zap className="text-[#D4A014] flex-shrink-0" size={18} />
                   <span className="text-sm font-medium text-brand-text">Repeatable Pipeline</span>
                 </div>
@@ -590,7 +601,7 @@ export default function CaseStudyContent() {
         </div>
       </section>
 
-      {/* 13. CTA */}
+      {/* 13. CTA — Outpace branding */}
       <section className="relative py-24 sm:py-32 bg-brand-darkest overflow-hidden">
         <GlowOrb color="rgba(34, 211, 238, 0.06)" size={400} top="-100px" right="-100px" />
         <GlowOrb color="rgba(52, 211, 153, 0.04)" size={350} bottom="-100px" left="-100px" delay={3} />

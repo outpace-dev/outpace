@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import LogoCloud from "@/components/LogoCloud";
 import { FOOTER_LOGOS } from "@/lib/brand-logos";
+import PartnerBadges from "@/components/PartnerBadges";
 
 const footerLinks = [
   {
@@ -84,11 +85,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-brand-border/50">
-          <LogoCloud
-            logos={FOOTER_LOGOS}
-            title="Integrated With"
-            size={20}
-          />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+            <LogoCloud
+              logos={FOOTER_LOGOS}
+              title="Integrated With"
+              size={20}
+            />
+            <div>
+              <p className="text-xs text-brand-muted uppercase tracking-wider mb-3">Certified Partner</p>
+              <PartnerBadges />
+            </div>
+          </div>
         </div>
 
         <div className="mt-8 pt-8 border-t border-brand-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">

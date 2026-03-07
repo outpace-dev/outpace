@@ -49,7 +49,7 @@ export default function SocialMediaGrid() {
             className="block"
           >
             <motion.div
-              className="relative p-6 sm:p-8 rounded-2xl bg-brand-dark/80 border border-brand-border/50 text-center group cursor-pointer overflow-hidden"
+              className="relative p-6 sm:p-8 rounded-2xl bg-white/[0.04] border border-white/[0.08] text-center group cursor-pointer overflow-hidden"
               whileHover={{ y: -4, scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >

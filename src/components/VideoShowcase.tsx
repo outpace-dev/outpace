@@ -49,7 +49,7 @@ export default function VideoShowcase() {
               className="block group"
             >
               {/* YouTube thumbnail */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-brand-border/50">
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/[0.08]">
                 <img
                   src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
                   alt={video.title}

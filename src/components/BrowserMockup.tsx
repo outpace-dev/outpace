@@ -17,16 +17,16 @@ export default function BrowserMockup({
 }: BrowserMockupProps) {
   return (
     <AnimatedSection>
-      <div className={`rounded-2xl overflow-hidden border border-brand-border/50 shadow-2xl shadow-black/40 ${className}`}>
+      <div className={`rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl shadow-black/40 ${className}`}>
         {/* Browser Chrome */}
-        <div className="flex items-center gap-3 px-4 py-3 bg-brand-darkest border-b border-brand-border/50">
+        <div className="flex items-center gap-3 px-4 py-3 bg-[#111] border-b border-white/[0.08]">
           <div className="flex gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500/60" />
             <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
             <div className="w-3 h-3 rounded-full bg-green-500/60" />
           </div>
           <div className="flex-1 flex justify-center">
-            <div className="px-4 py-1 rounded-md bg-brand-dark/80 text-xs text-brand-muted font-mono">
+            <div className="px-4 py-1 rounded-md bg-white/[0.06] text-xs text-brand-muted font-mono">
               {url}
             </div>
           </div>
