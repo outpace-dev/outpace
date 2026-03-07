@@ -215,13 +215,13 @@ export default function CaseStudyContent() {
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#D4A014] flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden">
                       <Image
-                        src="/images/cube-logo.png"
+                        src="/images/cube-icon.png"
                         alt="Cube Printing logo"
-                        width={40}
-                        height={40}
-                        className="object-contain brightness-0"
+                        width={56}
+                        height={56}
+                        className="object-cover w-full h-full"
                       />
                     </div>
                     <div>
