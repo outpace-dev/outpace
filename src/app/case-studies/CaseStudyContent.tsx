@@ -56,8 +56,8 @@ const challenges = [
   },
   {
     icon: AlertTriangle,
-    title: "No Digital Presence",
-    desc: "Outdated website that didn\u2019t reflect their capabilities. Zero social media strategy in place.",
+    title: "Limited Digital Presence",
+    desc: "Outdated website that didn\u2019t reflect their capabilities. Minimal social media strategy in place.",
   },
   {
     icon: Wifi,
@@ -335,8 +335,80 @@ export default function CaseStudyContent() {
         </div>
       </section>
 
+      {/* 4.5. DISCOVERY & ANALYSIS */}
+      <section className="py-20 sm:py-28 bg-[#0e0e0e] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,_rgba(212,160,20,0.05)_0%,_transparent_50%)]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <AccentHeading
+                text="Discovery & **Analysis.**"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+                accentColor="text-[#D4A014]"
+              />
+              <AnimatedSection delay={0.2}>
+                <p className="mt-6 text-brand-muted leading-relaxed text-lg">
+                  Before we built anything, we sat down with the Cube team and got
+                  to the core of their business. What makes them different? Where
+                  are the gaps? What does the market actually need?
+                </p>
+                <p className="mt-4 text-brand-muted leading-relaxed">
+                  We ran a full business analysis — mapping strengths, weaknesses,
+                  competitive positioning, and market opportunity. This wasn&apos;t
+                  a surface-level audit. We helped Cube articulate USPs they&apos;d
+                  never formally defined: three decades of expertise, ISO 9001
+                  certification, cGMP-ready processes, and a vertically integrated
+                  facility that handles design, print, and packaging under one roof.
+                </p>
+                <p className="mt-4 text-brand-muted leading-relaxed">
+                  We identified the med-tech sector as the highest-value
+                  opportunity — a market that demands the exact quality standards
+                  Cube already had, but didn&apos;t know how to reach. This
+                  discovery phase shaped every decision that followed.
+                </p>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.3}>
+                <div className="mt-8 grid grid-cols-2 gap-4">
+                  {[
+                    { label: "USPs Defined", detail: "Core differentiators documented and sharpened" },
+                    { label: "SWOT Analysis", detail: "Strengths, weaknesses, opportunities mapped" },
+                    { label: "Market Identified", detail: "Med-tech sector pinpointed as ideal fit" },
+                    { label: "Target Segments", detail: "High-value prospect profiles built" },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.08]"
+                    >
+                      <p className="text-sm font-bold text-[#D4A014]">{item.label}</p>
+                      <p className="mt-1 text-xs text-brand-muted leading-relaxed">{item.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </AnimatedSection>
+            </div>
+
+            <AnimatedSection delay={0.2}>
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl shadow-black/40">
+                  <Image
+                    src="/images/cube-boardroom.png"
+                    alt="Cube Printing team in boardroom strategy session"
+                    width={958}
+                    height={1152}
+                    className="w-full h-auto"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl bg-[#D4A014]/10 border border-[#D4A014]/20 -z-10" />
+                <div className="absolute -top-4 -right-4 w-16 h-16 rounded-full bg-[#D4A014]/10 border border-[#D4A014]/20 -z-10" />
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* 5. STATS */}
-      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
@@ -368,7 +440,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 6. WEBSITE SHOWCASE */}
-      <section className="py-20 sm:py-28 bg-[#141414]">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-16">
             <AccentHeading
@@ -432,7 +504,7 @@ export default function CaseStudyContent() {
       <div className="h-px bg-gradient-to-r from-transparent via-[#D4A014]/30 to-transparent" />
 
       {/* 8. VIDEO PRODUCTION */}
-      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
@@ -461,7 +533,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 9. SOCIAL MEDIA */}
-      <section className="py-20 sm:py-28 bg-[#141414]">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
@@ -483,7 +555,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 10. OUTBOUND & AI */}
-      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -544,7 +616,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 11. TIMELINE */}
-      <section className="py-20 sm:py-28 bg-[#141414]">
+      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <AccentHeading
@@ -561,7 +633,7 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 12. OUTCOME */}
-      <section className="py-20 sm:py-28 bg-[#0e0e0e]">
+      <section className="py-20 sm:py-28 bg-[#141414]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
             <div className="p-8 sm:p-12 rounded-2xl bg-gradient-to-br from-[#D4A014]/10 to-[#D4A014]/5 border border-[#D4A014]/25">

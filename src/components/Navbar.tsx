@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-  { href: "/", label: "Home" },
   { href: "/what-we-do", label: "What We Do" },
   { href: "/how-we-do-it", label: "How We Do It" },
   { href: "/who-we-are", label: "Who We Are" },
@@ -20,10 +19,18 @@ const caseStudies = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [csOpen, setCsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const csTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const isCaseStudy = pathname.startsWith("/case-studies");
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleCsEnter = () => {
     if (csTimeout.current) clearTimeout(csTimeout.current);
@@ -34,12 +41,26 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-brand-darkest/80 backdrop-blur-xl border-b border-brand-border/50">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 bg-brand-darkest/80 backdrop-blur-xl border-b border-brand-border/50 transition-all duration-300 ${
+        scrolled ? "py-0" : "py-1"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div
+          className={`flex items-center justify-between transition-all duration-300 ${
+            scrolled ? "h-14" : "h-20"
+          }`}
+        >
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-3xl tracking-tight text-shimmer">
-              <span className="font-extrabold">OUT</span><span className="font-light">PACE</span><span className="text-brand-cyan-bright font-extrabold">.</span>
+            <span
+              className={`tracking-tight text-shimmer transition-all duration-300 ${
+                scrolled ? "text-2xl" : "text-3xl"
+              }`}
+            >
+              <span className="font-extrabold">OUT</span>
+              <span className="font-light">PACE</span>
+              <span className="text-brand-cyan-bright font-extrabold">.</span>
             </span>
           </Link>
 
@@ -105,7 +126,9 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="ml-4 px-5 py-2.5 bg-gradient-to-r from-brand-cyan to-brand-teal hover:from-brand-cyan-bright hover:to-brand-cyan text-white text-sm font-semibold rounded-lg transition-all duration-200 shadow-lg shadow-brand-cyan/25"
+              className={`ml-4 bg-gradient-to-r from-brand-cyan to-brand-teal hover:from-brand-cyan-bright hover:to-brand-cyan text-white text-sm font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-brand-cyan/25 ${
+                scrolled ? "px-4 py-2" : "px-5 py-2.5"
+              }`}
             >
               Book a Call
             </Link>

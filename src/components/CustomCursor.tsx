@@ -11,11 +11,10 @@ export default function CustomCursor() {
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
-  const springX = useSpring(mouseX, { stiffness: 150, damping: 15, mass: 0.1 });
-  const springY = useSpring(mouseY, { stiffness: 150, damping: 15, mass: 0.1 });
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 28, mass: 0.5 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 28, mass: 0.5 });
 
   useEffect(() => {
-    // Hide on touch devices
     const isTouch =
       window.matchMedia("(pointer: coarse)").matches ||
       "ontouchstart" in window;
@@ -28,7 +27,7 @@ export default function CustomCursor() {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
       if (dotRef.current) {
-        dotRef.current.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+        dotRef.current.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
       }
     };
 
@@ -37,7 +36,6 @@ export default function CustomCursor() {
 
     window.addEventListener("mousemove", onMouseMove);
 
-    // Delegate hover detection for interactive elements
     const addListeners = () => {
       const interactives = document.querySelectorAll(
         'a, button, [role="button"], input, textarea, select, [data-cursor-hover]'
@@ -51,7 +49,6 @@ export default function CustomCursor() {
 
     let interactives = addListeners();
 
-    // Re-bind on DOM changes (for dynamically rendered content)
     const observer = new MutationObserver(() => {
       interactives.forEach((el) => {
         el.removeEventListener("mouseenter", onMouseEnterInteractive);
@@ -76,21 +73,20 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Inner dot — instant tracking */}
+      {/* Inner dot — instant */}
       <div
         ref={dotRef}
-        className="fixed top-0 left-0 z-[9999] pointer-events-none"
+        className="fixed top-0 left-0 z-[9999] pointer-events-none mix-blend-difference"
         style={{
-          width: 8,
-          height: 8,
+          width: 6,
+          height: 6,
           borderRadius: "50%",
-          background: "#22d3ee",
-          boxShadow: "0 0 12px rgba(34, 211, 238, 0.8), 0 0 24px rgba(34, 211, 238, 0.4)",
+          background: "#fff",
           willChange: "transform",
         }}
       />
 
-      {/* Outer ring — spring-based trail */}
+      {/* Outer ring — smooth follow */}
       <motion.div
         className="fixed top-0 left-0 z-[9998] pointer-events-none"
         style={{
@@ -102,19 +98,17 @@ export default function CustomCursor() {
       >
         <motion.div
           animate={{
-            width: hovering ? 60 : 40,
-            height: hovering ? 60 : 40,
+            width: hovering ? 48 : 32,
+            height: hovering ? 48 : 32,
             borderColor: hovering
-              ? "rgba(52, 211, 153, 0.6)"
-              : "rgba(34, 211, 238, 0.3)",
-            backgroundColor: hovering
-              ? "rgba(52, 211, 153, 0.05)"
-              : "rgba(34, 211, 238, 0.02)",
+              ? "rgba(255, 255, 255, 0.5)"
+              : "rgba(255, 255, 255, 0.15)",
           }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="mix-blend-difference"
           style={{
             borderRadius: "50%",
-            borderWidth: 2,
+            borderWidth: 1.5,
             borderStyle: "solid",
           }}
         />
