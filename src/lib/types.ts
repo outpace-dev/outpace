@@ -112,4 +112,10 @@ export interface DiscoveryPageConfig {
   industry: string;
   systemPromptAdditions?: string;
   customQuestionFramework?: string;
+  firstMessage?: string;
+  companyLogo?: string;
+  companyName?: string;
+  companyDescription?: string;
+  contactName?: string;
+  knownClients?: string[];
 }

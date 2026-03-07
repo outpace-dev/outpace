@@ -36,9 +36,20 @@ export async function POST(req: NextRequest) {
     const pageConfig = slug ? PAGE_CONFIGS[slug] : undefined;
     const systemPrompt = buildDiscoverySystemPrompt(currentData, pageConfig);
 
-    // Build first message
-    const firstMessage =
-      "Hi there! I'm your growth consultant from Outpace. I'd love to learn about your business and explore how we might help you grow. This'll take about 10 minutes. Let's get started — tell me a bit about what your company does?";
+    // Build first message — personalized if we have page config, generic otherwise
+    // Research-backed: keep it SHORT, get a "small yes" early, get them talking within 10-15 seconds
+    let firstMessage: string;
+    if (pageConfig?.firstMessage) {
+      firstMessage = pageConfig.firstMessage;
+    } else if (pageConfig?.customQuestionFramework) {
+      // Custom page without explicit firstMessage
+      firstMessage =
+        `Hey! I'm from Outpace — we're a growth consultancy. We've done a bit of research on your business already, so I've got some good context. What I'd love to do is ask you a few questions so our team can put together a tailored growth proposal. Takes about ten minutes. Sound good?`;
+    } else {
+      // Generic discovery page
+      firstMessage =
+        "Hey! I'm from Outpace — we're a growth consultancy for businesses in Ireland and the UK. I'd love to ask you a few questions about your business so our team can put together some tailored recommendations. Takes about ten minutes. Sound good?";
+    }
 
     // Get signed URL from ElevenLabs
     const response = await fetch(

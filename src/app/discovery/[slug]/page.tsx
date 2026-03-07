@@ -1,5 +1,7 @@
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import DiscoveryChat from "@/components/DiscoveryChat";
+import ScrollToTop from "@/components/ScrollToTop";
 import { PAGE_CONFIGS } from "@/lib/discovery-configs";
 
 export async function generateStaticParams() {
@@ -29,77 +31,107 @@ export default function PersonalisedDiscoveryPage({
 
   return (
     <div className="min-h-screen pt-8 pb-20">
+      <ScrollToTop />
       {/* ── Hero ── */}
-      <section className="pt-12 pb-10 px-6 relative overflow-hidden">
+      <section className="pt-6 pb-4 px-6 relative overflow-hidden" tabIndex={-1}>
         <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-30%] right-[-10%] w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 bg-[#0d1525] border border-slate-800 rounded-full px-4 py-1.5 mb-8">
-            <div className="w-2 h-2 rounded-full bg-cyan-400" />
-            <span className="text-slate-400 text-xs font-medium tracking-wider uppercase">
-              Outpace · {config.industry}
-            </span>
+        <div className="max-w-4xl mx-auto relative z-10">
+          {/* Pill + Company card row */}
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 bg-[#0d1525] border border-slate-800 rounded-full px-4 py-1.5 mb-3">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-slate-400 text-xs font-medium tracking-wider uppercase">
+                  {config.contactName
+                    ? `Prepared for ${config.contactName}`
+                    : `Outpace · ${config.industry}`}
+                </span>
+              </div>
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.1]">
+                {config.heroTitle}
+              </h1>
+            </div>
+
+            {/* Company logo */}
+            {config.companyLogo && (
+              <div className="flex-shrink-0 bg-white rounded-lg p-3">
+                <Image
+                  src={config.companyLogo}
+                  alt={config.companyName || "Company logo"}
+                  width={120}
+                  height={48}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            )}
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
-            {config.heroTitle}
-          </h1>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="text-base text-slate-400 max-w-2xl mb-2">
             {config.heroSubtitle}
           </p>
-        </div>
-      </section>
 
-      {/* ── Value Props ── */}
-      <section className="px-6 pb-8">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
-          {config.valueProps.map((vp) => (
-            <div
-              key={vp}
-              className="bg-[#0d1525] border border-slate-800/60 rounded-xl p-4 text-center"
-            >
-              <span className="text-cyan-400 text-lg mb-1 block">▸</span>
-              <p className="text-slate-400 text-xs leading-relaxed">{vp}</p>
+          {/* Known clients inline */}
+          {config.knownClients && config.knownClients.length > 0 && (
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-slate-600 text-xs font-medium uppercase tracking-wider">
+                Key clients
+              </span>
+              {config.knownClients.map((client) => (
+                <span
+                  key={client}
+                  className="text-slate-500 text-xs bg-slate-800/50 rounded-full px-2.5 py-0.5"
+                >
+                  {client}
+                </span>
+              ))}
             </div>
-          ))}
+          )}
         </div>
       </section>
 
       {/* ── Chat Widget ── */}
-      <section className="px-6 pb-16">
+      <section className="px-6 pt-4 pb-12">
         <div className="max-w-3xl mx-auto">
           <DiscoveryChat slug={config.slug} />
         </div>
       </section>
 
-      {/* ── Social Proof ── */}
+      {/* ── What You'll Receive ── */}
       <section className="px-6 pb-16">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-[#0d1525] border border-slate-800 rounded-xl p-8">
-            <p className="text-cyan-400 font-semibold text-xs tracking-wider uppercase mb-3">
-              Proven Results
-            </p>
-            <p className="text-white font-bold text-lg mb-2">
-              Cube Printing Case Study
-            </p>
-            <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-              We helped Cube Printing identify the med-tech market as their ideal
-              target, reached 900 decision-makers across 115 companies, and
-              secured new business within months.
-            </p>
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { value: "115", label: "Target companies" },
-                { value: "900", label: "Contacts reached" },
-                { value: "✓", label: "New business won" },
-              ].map((s) => (
-                <div key={s.label} className="bg-slate-800/50 rounded-lg p-4 text-center">
-                  <p className="text-2xl font-bold text-cyan-400">{s.value}</p>
-                  <p className="text-xs text-slate-500 mt-1">{s.label}</p>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                icon: "📋",
+                title: "Tailored proposal",
+                desc: "A growth strategy specific to your business, not a generic template",
+              },
+              {
+                icon: "⏱",
+                title: "Within 24 hours",
+                desc: "Our team reviews the consultation and delivers your proposal fast",
+              },
+              {
+                icon: "🎯",
+                title: "Clear next steps",
+                desc: "Actionable opportunities ranked by impact and effort",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="bg-[#0d1525]/60 border border-slate-800/40 rounded-xl p-5 text-center"
+              >
+                <span className="text-2xl mb-3 block">{item.icon}</span>
+                <p className="text-white font-semibold text-sm mb-1">
+                  {item.title}
+                </p>
+                <p className="text-slate-500 text-xs leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
