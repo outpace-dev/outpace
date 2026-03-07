@@ -22,14 +22,14 @@ export default function AnimatedLogo({ className = "" }: AnimatedLogoProps) {
 
   return (
     <span
-      className={`tracking-tight text-shimmer inline-flex ${className}`}
+      className={`tracking-tight inline-flex ${className}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       {letters.map((letter, i) => (
         <span
           key={i}
-          className={`inline-block transition-transform duration-300 ease-out ${
+          className={`inline-block text-shimmer transition-transform duration-300 ease-out ${
             letter.accent
               ? "text-brand-cyan-bright font-extrabold"
               : letter.bold
