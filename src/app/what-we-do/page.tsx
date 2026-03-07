@@ -30,6 +30,24 @@ import {
   MousePointerClick,
   BrainCircuit,
   MessageSquare,
+  GraduationCap,
+  BookOpen,
+  ClipboardCheck,
+  Trophy,
+  Heart,
+  ThumbsUp,
+  ArrowUpRight,
+  RefreshCw,
+  Crosshair,
+  Map,
+  Tag,
+  Briefcase,
+  Handshake,
+  Network,
+  Gift,
+  UserPlus,
+  BadgeEuro,
+  Megaphone as MegaphoneIcon,
 } from "lucide-react";
 import ParticleField from "@/components/ParticleField";
 import GlowOrb from "@/components/GlowOrb";
@@ -78,6 +96,7 @@ const pillars: Pillar[] = [
       { icon: Users, text: "Target market identification & segmentation" },
       { icon: BarChart3, text: "Competitive landscape analysis" },
       { icon: Target, text: "Growth opportunity roadmap with clear priorities" },
+      { icon: BadgeEuro, text: "Grant & funding navigation (Enterprise Ireland, LEO)" },
     ],
   },
   {
@@ -149,6 +168,7 @@ const pillars: Pillar[] = [
       { icon: Video, text: "Client testimonial videos" },
       { icon: Camera, text: "Facility tours & brand films" },
       { icon: Share2, text: "Brand storytelling & content strategy" },
+      { icon: UserPlus, text: "Employer branding & recruitment content" },
     ],
   },
   {
@@ -168,6 +188,74 @@ const pillars: Pillar[] = [
       { icon: MousePointerClick, text: "Personalised prospect landing pages" },
     ],
     logos: AI_LOGOS,
+  },
+  {
+    id: "sales",
+    number: "07",
+    title: "Sales Enablement & Training",
+    subtitle: "Close more of what you generate",
+    desc: "No point filling a pipeline if the sales team can't convert. We build sales playbooks, train your team on consultative selling, and create objection-handling frameworks so leads actually turn into revenue.",
+    gradient: "from-indigo-400 to-blue-500",
+    glowColor: "rgba(129, 140, 248, 0.15)",
+    iconBg: "bg-indigo-500/10",
+    iconColor: "text-indigo-400",
+    features: [
+      { icon: BookOpen, text: "Sales playbook creation & objection handling" },
+      { icon: GraduationCap, text: "Discovery call coaching & pitch training" },
+      { icon: Workflow, text: "Sales process mapping & optimisation" },
+      { icon: Trophy, text: "Win/loss analysis & pipeline reviews" },
+    ],
+  },
+  {
+    id: "retention",
+    number: "08",
+    title: "Customer Retention & Growth",
+    subtitle: "Your easiest revenue is already in your database",
+    desc: "Acquiring a new client costs five times more than keeping one. We build structured retention programmes, set up satisfaction tracking, and create upsell strategies that grow revenue from your existing client base.",
+    gradient: "from-teal-400 to-cyan-500",
+    glowColor: "rgba(45, 212, 191, 0.15)",
+    iconBg: "bg-teal-500/10",
+    iconColor: "text-teal-400",
+    features: [
+      { icon: Heart, text: "Churn analysis & client health scoring" },
+      { icon: ThumbsUp, text: "NPS / CSAT programme setup & tracking" },
+      { icon: ArrowUpRight, text: "Upsell & cross-sell strategy" },
+      { icon: RefreshCw, text: "Structured account review processes" },
+    ],
+  },
+  {
+    id: "positioning",
+    number: "09",
+    title: "Brand Positioning & GTM Strategy",
+    subtitle: "Know exactly who you are and where to win",
+    desc: "Before a single campaign launches, your positioning needs to be razor sharp. We run structured workshops to nail your messaging, define your ideal customer, and build a go-to-market plan that ties everything together.",
+    gradient: "from-sky-400 to-blue-500",
+    glowColor: "rgba(56, 189, 248, 0.15)",
+    iconBg: "bg-sky-500/10",
+    iconColor: "text-sky-400",
+    features: [
+      { icon: Crosshair, text: "Messaging hierarchy & value proposition workshops" },
+      { icon: Map, text: "Go-to-market strategy for new products & markets" },
+      { icon: Users, text: "ICP refinement & buyer persona development" },
+      { icon: Tag, text: "Pricing & packaging strategy reviews" },
+    ],
+  },
+  {
+    id: "partnerships",
+    number: "10",
+    title: "Partnerships & Referral Programmes",
+    subtitle: "Build channels that compound",
+    desc: "Referrals drive 31% of revenue but most businesses leave them to chance. We identify your ideal referral partners, design structured programmes, and build co-marketing plays that create a compounding growth channel.",
+    gradient: "from-lime-400 to-emerald-500",
+    glowColor: "rgba(163, 230, 53, 0.15)",
+    iconBg: "bg-lime-500/10",
+    iconColor: "text-lime-400",
+    features: [
+      { icon: Handshake, text: "Strategic partner identification & outreach" },
+      { icon: Network, text: "Referral programme design & tracking" },
+      { icon: Gift, text: "Co-marketing campaigns with partners" },
+      { icon: Briefcase, text: "Channel partner enablement & collateral" },
+    ],
   },
 ];
 
@@ -304,7 +392,7 @@ function ServiceNav() {
   return (
     <section className="relative py-16 sm:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {pillars.map((p, i) => (
             <motion.a
               key={p.id}
@@ -356,8 +444,8 @@ function StatsBar() {
   const inView = useInView(ref, { once: true });
 
   const stats = [
-    { value: "6", label: "Service Pillars" },
-    { value: "24+", label: "Individual Services" },
+    { value: "10", label: "Service Pillars" },
+    { value: "40+", label: "Individual Services" },
     { value: "1", label: "Integrated Partner" },
     { value: "100%", label: "Client Retention" },
   ];
@@ -433,9 +521,9 @@ export default function WhatWeDoPage() {
             />
 
             <p className="mt-8 text-xl text-slate-400 max-w-2xl leading-relaxed">
-              Six integrated service pillars covering the entire business
-              development lifecycle — from understanding your market to filling
-              your pipeline to closing deals.
+              Ten integrated service pillars covering the entire business
+              development lifecycle — from positioning and strategy through pipeline
+              generation, sales enablement, and client retention.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">

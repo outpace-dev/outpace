@@ -28,6 +28,8 @@ import {
   TrendingUp,
   X,
   Check,
+  GraduationCap,
+  Handshake,
 } from "lucide-react";
 
 const services = [
@@ -43,13 +45,23 @@ const services = [
   },
   {
     icon: Users,
-    title: "Client Relationships",
-    desc: "CRM implementation, customer service consulting, and process efficiency to turn one-time buyers into long-term clients.",
+    title: "Client Relationships & Retention",
+    desc: "CRM implementation, retention programmes, NPS tracking, and upsell strategies to grow revenue from clients you already have.",
   },
   {
     icon: LineChart,
     title: "Strategy & Advisory",
-    desc: "Consultative business analysis, market research, USP documentation, and target market identification to sharpen your edge.",
+    desc: "Business analysis, brand positioning, go-to-market strategy, pricing reviews, and target market identification to sharpen your edge.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Sales Enablement",
+    desc: "Sales playbooks, team training, and process optimisation so your team converts more of the pipeline we build.",
+  },
+  {
+    icon: Handshake,
+    title: "Partnerships & Growth Channels",
+    desc: "Referral programmes, strategic partnerships, and co-marketing campaigns that create compounding growth.",
   },
 ];
 
@@ -282,7 +294,7 @@ export default function HomePage() {
                 Our Approach
               </p>
               <AccentHeading
-                text="Four pillars of **growth.**"
+                text="Ten pillars of **growth.**"
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-brand-text"
               />
               <p className="mt-6 text-lg text-brand-muted leading-relaxed">
@@ -292,7 +304,7 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <AnimatedSection key={s.title} delay={i * 0.1}>
                 <TiltCard className="relative h-full">
@@ -318,7 +330,7 @@ export default function HomePage() {
                 href="/what-we-do"
                 className="text-brand-cyan-bright font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all group"
               >
-                See all 24+ services
+                See all 40+ services
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
