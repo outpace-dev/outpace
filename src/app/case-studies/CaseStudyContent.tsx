@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 import AccentHeading from "@/components/AccentHeading";
 import ParticleField from "@/components/ParticleField";
@@ -181,8 +182,14 @@ export default function CaseStudyContent() {
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                 <div>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-[#D4A014]/10 flex items-center justify-center">
-                      <span className="text-[#D4A014] font-extrabold text-xl">C</span>
+                    <div className="w-14 h-14 rounded-2xl overflow-hidden bg-[#D4A014]/10 flex items-center justify-center">
+                      <Image
+                        src="/images/cube-logo.png"
+                        alt="Cube Printing logo"
+                        width={56}
+                        height={56}
+                        className="object-contain"
+                      />
                     </div>
                     <div>
                       <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">
@@ -321,19 +328,17 @@ export default function CaseStudyContent() {
               <TiltCard>
                 <BrowserMockup
                   url="cube.irish"
-                  title="CUBE"
-                  subtitle="DESIGN &bull; PRINT &bull; PACKAGE"
-                  accentColor="#D4A014"
+                  screenshot="/images/cube-desktop.png"
                 />
               </TiltCard>
             </div>
 
             <div className="absolute -bottom-12 right-4 sm:right-12 z-20 hidden md:block">
-              <PhoneMockup />
+              <PhoneMockup screenshot="/images/cube-mobile.png" />
             </div>
 
             <div className="mt-8 flex justify-center md:hidden">
-              <PhoneMockup float={false} />
+              <PhoneMockup screenshot="/images/cube-mobile.png" float={false} />
             </div>
           </div>
 

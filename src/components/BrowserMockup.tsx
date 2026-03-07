@@ -1,21 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import AnimatedSection from "@/components/AnimatedSection";
 
 interface BrowserMockupProps {
   url: string;
-  title: string;
-  subtitle?: string;
-  accentColor?: string;
+  screenshot: string;
   className?: string;
 }
 
 export default function BrowserMockup({
   url,
-  title,
-  subtitle,
-  accentColor = "#D4A014",
+  screenshot,
   className = "",
 }: BrowserMockupProps) {
   return (
@@ -36,45 +33,15 @@ export default function BrowserMockup({
           <div className="w-[52px]" />
         </div>
 
-        {/* Browser Content */}
-        <div className="relative aspect-[16/10] bg-gradient-to-br from-[#0f1629] via-[#121a30] to-[#0a0f1a] overflow-hidden">
-          {/* Grid pattern */}
-          <div
-            className="absolute inset-0 opacity-[0.04]"
-            style={{
-              backgroundImage: `linear-gradient(${accentColor}40 1px, transparent 1px), linear-gradient(90deg, ${accentColor}40 1px, transparent 1px)`,
-              backgroundSize: "60px 60px",
-            }}
+        {/* Real Screenshot */}
+        <div className="relative aspect-[16/10] overflow-hidden">
+          <Image
+            src={screenshot}
+            alt={`${url} website screenshot`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 1200px"
           />
-
-          {/* Header strip */}
-          <div className="h-1 w-full" style={{ backgroundColor: accentColor, opacity: 0.6 }} />
-
-          {/* Content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-8">
-            <motion.div
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-3"
-              style={{ color: accentColor }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              {title}
-            </motion.div>
-            {subtitle && (
-              <motion.p
-                className="text-sm sm:text-base text-brand-muted/60 font-medium tracking-wide"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5, duration: 0.5 }}
-              >
-                {subtitle}
-              </motion.p>
-            )}
-          </div>
-
           {/* Shimmer sweep */}
           <motion.div
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent"
