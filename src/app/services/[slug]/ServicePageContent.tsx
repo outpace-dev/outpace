@@ -68,6 +68,7 @@ import {
   AI_LOGOS,
   SYSTEMS_LOGOS,
 } from "@/lib/brand-logos";
+import { SERVICE_CONFIGS } from "@/lib/service-page-configs";
 import type { ServicePageConfig, ServiceFeature } from "@/lib/service-page-configs";
 
 /* ───── Icon resolver ───── */
@@ -183,6 +184,15 @@ export default function ServicePageContent({
   config: ServicePageConfig;
 }) {
   const logos = config.logoSetKey ? LOGO_MAP[config.logoSetKey] : null;
+
+  /* ── Related services (3 others, cycling through the list) ── */
+  const allSlugs = Object.keys(SERVICE_CONFIGS);
+  const currentIdx = allSlugs.indexOf(config.slug);
+  const relatedServices: ServicePageConfig[] = [];
+  for (let i = 1; relatedServices.length < 3; i++) {
+    const idx = (currentIdx + i) % allSlugs.length;
+    relatedServices.push(SERVICE_CONFIGS[allSlugs[idx]]);
+  }
 
   return (
     <>
@@ -394,7 +404,7 @@ export default function ServicePageContent({
                 What&apos;s Included
               </p>
               <AccentHeading
-                text="Everything you need. **Nothing** you don't."
+                text={config.featuresHeading || "Everything you need. **Nothing** you don't."}
                 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-brand-text"
               />
             </div>
@@ -433,7 +443,7 @@ export default function ServicePageContent({
                 Common Questions
               </p>
               <AccentHeading
-                text="Everything you need to **know.**"
+                text={config.faqHeading || "Everything you need to **know.**"}
                 className="text-3xl sm:text-4xl font-bold font-display text-brand-text"
               />
             </div>
@@ -441,6 +451,57 @@ export default function ServicePageContent({
           <AnimatedSection delay={0.2}>
             <FaqAccordion items={config.faq} accentColor={config.iconColor} />
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ── More Services ── */}
+      <section className="py-20 sm:py-24 bg-brand-dark border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-12">
+              <p
+                className={`font-semibold text-sm uppercase tracking-[0.2em] mb-4 bg-gradient-to-r ${config.gradient} bg-clip-text text-transparent`}
+              >
+                Explore More
+              </p>
+              <AccentHeading
+                text="Other ways we **help you grow.**"
+                className="text-2xl sm:text-3xl font-bold font-display text-brand-text"
+              />
+            </div>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {relatedServices.map((rs, i) => (
+              <AnimatedSection key={rs.slug} delay={i * 0.1}>
+                <Link href={`/services/${rs.slug}`} className="group block h-full">
+                  <TiltCard className="h-full">
+                    <div className="p-6 rounded-xl glass glass-hover h-full">
+                      <span
+                        className={`text-xs font-bold bg-gradient-to-r ${rs.gradient} bg-clip-text text-transparent`}
+                      >
+                        {rs.pillarNumber}
+                      </span>
+                      <h3 className="mt-2 text-lg font-semibold text-white group-hover:text-brand-cyan-bright transition-colors leading-snug">
+                        {rs.title.replace(/\*\*/g, "")}
+                      </h3>
+                      <p className="mt-2 text-sm text-slate-400 leading-relaxed line-clamp-2">
+                        {rs.subtitle}
+                      </p>
+                      <span
+                        className={`mt-4 inline-flex items-center gap-1 text-sm font-semibold bg-gradient-to-r ${rs.gradient} bg-clip-text text-transparent`}
+                      >
+                        Learn more
+                        <ArrowRight
+                          size={14}
+                          className={`${rs.iconColor} group-hover:translate-x-1 transition-transform`}
+                        />
+                      </span>
+                    </div>
+                  </TiltCard>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

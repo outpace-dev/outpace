@@ -237,7 +237,7 @@ const pillars: Pillar[] = [
     number: "09",
     title: "Brand Positioning & GTM Strategy",
     subtitle: "Get clear before you spend a cent",
-    desc: "If your positioning is vague, every campaign you run is a coin flip. We help you get crystal clear on who you're for, why they should care, and how to take that message to market — so every pound you spend actually lands.",
+    desc: "If your positioning is vague, every campaign you run is a coin flip. We help you get crystal clear on who you're for, why they should care, and how to take that message to market — so every euro you spend actually lands.",
     gradient: "from-sky-400 to-blue-500",
     glowColor: "rgba(56, 189, 248, 0.15)",
     iconBg: "bg-sky-500/10",

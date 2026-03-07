@@ -40,5 +40,27 @@ export default function ServicePage({
     notFound();
   }
 
-  return <ServicePageContent config={config} />;
+  /* ── FAQPage structured data for rich results ── */
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: config.faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <ServicePageContent config={config} />
+    </>
+  );
 }

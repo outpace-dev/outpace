@@ -38,6 +38,9 @@ export interface ServicePageConfig {
   faq: ServiceFaq[];
   // Logo set key — resolved in the page component
   logoSetKey?: "OUTBOUND_LOGOS" | "DIGITAL_LOGOS" | "AI_LOGOS" | "SYSTEMS_LOGOS";
+  // Optional per-page section headings (defaults in template)
+  featuresHeading?: string; // AccentHeading — use **bold** for accent
+  faqHeading?: string; // AccentHeading — use **bold** for accent
   // CTA
   ctaHeading: string;
   ctaText: string;
@@ -113,16 +116,6 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         title: "Lead Scoring & Qualification",
         desc: "Every lead scored on fit and intent so your team focuses on the ones most likely to close.",
       },
-      {
-        iconName: "BarChart3",
-        title: "Campaign Analytics & A/B Testing",
-        desc: "Every subject line, message, and call script is tested and optimised for maximum response rates.",
-      },
-      {
-        iconName: "TrendingUp",
-        title: "Pipeline Reporting",
-        desc: "Transparent dashboards showing exactly how many prospects were contacted, replied, and booked — in real time.",
-      },
     ],
 
     faq: [
@@ -147,6 +140,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         a: "Most campaigns are live within 2-3 weeks of kickoff. First qualified meetings typically come within 30 days. We move fast because pipeline waits for no one.",
       },
     ],
+
+    featuresHeading: "Every tool to fill your **pipeline.**",
+    faqHeading: "Lead gen questions, **answered.**",
 
     logoSetKey: "OUTBOUND_LOGOS",
 
@@ -207,7 +203,7 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
       {
         iconName: "MousePointerClick",
         title: "Google Ads Management",
-        desc: "Search and display campaigns targeting high-intent keywords — every pound tracked to a lead or sale.",
+        desc: "Search and display campaigns targeting high-intent keywords — every euro tracked to a lead or sale.",
       },
       {
         iconName: "Linkedin",
@@ -223,16 +219,6 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         iconName: "Share2",
         title: "Social Media Management",
         desc: "Content planning, creation, and scheduling across LinkedIn, Instagram, Facebook, and X — consistent presence without the overhead.",
-      },
-      {
-        iconName: "FileText",
-        title: "Landing Page Creation",
-        desc: "Dedicated landing pages for campaigns, events, and offers — built to convert a specific audience on a specific message.",
-      },
-      {
-        iconName: "BarChart3",
-        title: "Conversion Rate Optimisation",
-        desc: "A/B testing, heatmaps, and user journey analysis to squeeze more leads out of the traffic you already have.",
       },
     ],
 
@@ -258,6 +244,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         a: "We start small, test fast, and scale what works. Every campaign is tracked to a lead or sale — not impressions or clicks. If an ad isn't generating revenue, we cut it and redirect the budget.",
       },
     ],
+
+    featuresHeading: "Your complete digital **growth stack.**",
+    faqHeading: "Digital questions, **answered.**",
 
     logoSetKey: "DIGITAL_LOGOS",
 
@@ -360,6 +349,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
       },
     ],
 
+    featuresHeading: "AI that works — **not just demos.**",
+    faqHeading: "AI questions, **answered.**",
+
     logoSetKey: "AI_LOGOS",
 
     ctaHeading: "Ready to put AI to **work?**",
@@ -461,6 +453,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
       },
     ],
 
+    featuresHeading: "Sharpen every stage of the **close.**",
+    faqHeading: "Sales enablement questions, **answered.**",
+
     ctaHeading: "Ready to close more of what you **generate?**",
     ctaText:
       "Book a free discovery call. We'll review your current sales process, identify where deals are leaking, and show you exactly how to fix it.",
@@ -560,6 +555,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
       },
     ],
 
+    featuresHeading: "The full diagnostic **toolkit.**",
+    faqHeading: "Strategy questions, **answered.**",
+
     ctaHeading: "Ready to understand your business **better than anyone?**",
     ctaText:
       "Book a free discovery call. We'll learn about your business, identify the biggest growth opportunities, and show you exactly where to start.",
@@ -658,6 +656,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         a: "That's the plan. We build systems with growth in mind — so when you double your team or enter a new market, your operations scale with you instead of breaking apart.",
       },
     ],
+
+    featuresHeading: "Systems built to **scale with you.**",
+    faqHeading: "Systems questions, **answered.**",
 
     logoSetKey: "SYSTEMS_LOGOS",
 
@@ -760,6 +761,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
       },
     ],
 
+    featuresHeading: "Every format. **Every** channel.",
+    faqHeading: "Content & video questions, **answered.**",
+
     ctaHeading: "Ready to become the **authority** in your space?",
     ctaText:
       "Book a free discovery call. We'll discuss your content gaps, plan a production schedule, and show you how the right content shortens your sales cycle.",
@@ -859,6 +863,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
       },
     ],
 
+    featuresHeading: "Keep clients. **Grow** their accounts.",
+    faqHeading: "Retention questions, **answered.**",
+
     ctaHeading: "Ready to keep your best clients **and grow them?**",
     ctaText:
       "Book a free discovery call. We'll review your current retention approach, identify at-risk accounts, and show you how to turn existing clients into your biggest growth lever.",
@@ -876,7 +883,7 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     metaDescription:
       "Brand positioning, messaging frameworks, ICP development, go-to-market strategy, and competitive differentiation. Get clear before you spend a cent on marketing.",
     subtitle:
-      "If your positioning is vague, every campaign you run is a coin flip. We help you get crystal clear on who you're for, why they should care, and how to take that message to market — so every pound you spend actually lands.",
+      "If your positioning is vague, every campaign you run is a coin flip. We help you get crystal clear on who you're for, why they should care, and how to take that message to market — so every euro you spend actually lands.",
     gradient: "from-sky-400 to-blue-500",
     glowColor: "rgba(56, 189, 248, 0.15)",
     iconBg: "bg-sky-500/10",
@@ -957,6 +964,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         a: "Absolutely — that's one of the most common reasons clients come to us. We'll help you define the opportunity, position your offer, plan the launch, and execute the go-to-market strategy.",
       },
     ],
+
+    featuresHeading: "Clarity from tagline to **full pitch.**",
+    faqHeading: "Positioning questions, **answered.**",
 
     ctaHeading: "Ready to get your positioning **right?**",
     ctaText:
@@ -1056,6 +1066,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
         a: "It's built for B2B companies. Referral and partner programmes are some of the most effective growth levers in B2B because trust transfers between business relationships far more powerfully than any ad campaign.",
       },
     ],
+
+    featuresHeading: "Everything to make referrals **predictable.**",
+    faqHeading: "Partnership questions, **answered.**",
 
     ctaHeading: "Ready to turn your network into a **growth engine?**",
     ctaText:
