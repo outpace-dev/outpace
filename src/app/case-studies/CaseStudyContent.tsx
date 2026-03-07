@@ -113,20 +113,35 @@ const funnelSteps = [
 export default function CaseStudyContent() {
   return (
     <>
-      {/* 1. HERO */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-brand-dark">
-        <ParticleField />
-        <GlowOrb color="rgba(34, 211, 238, 0.08)" size={600} top="-200px" left="-200px" />
-        <GlowOrb color="rgba(52, 211, 153, 0.06)" size={500} bottom="-150px" right="-150px" delay={2} />
+      {/* 1. HERO — Video background */}
+      <section className="relative min-h-[85vh] flex items-end overflow-hidden bg-black">
+        {/* Video background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/cube-desktop.png"
+        >
+          <source src="https://cube.irish/wp-content/uploads/2026/01/Untitled.mp4" type="video/mp4" />
+        </video>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 sm:pt-40 sm:pb-28">
+        {/* Dark gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent" />
+
+        {/* Gold accent line at top */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#D4A014]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24 pt-40">
           <AnimatedSection>
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-black/60 border border-[#D4A014]/30 backdrop-blur-sm mb-8">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-black/70 border border-[#D4A014]/40 backdrop-blur-md mb-8">
               <Image
                 src="/images/cube-logo.png"
                 alt="Cube Printing"
-                width={40}
-                height={40}
+                width={44}
+                height={44}
               />
               <div className="border-l border-[#D4A014]/30 pl-3">
                 <span className="text-white font-extrabold text-xl tracking-wider">CUBE</span>
@@ -141,11 +156,12 @@ export default function CaseStudyContent() {
           <AccentHeading
             as="h1"
             text="Cube Printing: From local printer to **med-tech powerhouse.**"
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-text max-w-5xl leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white max-w-5xl leading-tight drop-shadow-lg"
+            accentColor="text-[#D4A014]"
           />
 
           <AnimatedSection delay={0.3}>
-            <p className="mt-6 text-lg sm:text-xl text-brand-muted max-w-2xl leading-relaxed">
+            <p className="mt-6 text-lg sm:text-xl text-white/80 max-w-2xl leading-relaxed drop-shadow-md">
               How we helped a Limerick-based printing company break into the
               med-tech market with an integrated strategy spanning outbound,
               video, web, social, and AI.
@@ -153,7 +169,7 @@ export default function CaseStudyContent() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.4}>
-            <div className="mt-8 flex flex-wrap gap-6 text-sm text-brand-muted">
+            <div className="mt-8 flex flex-wrap gap-6 text-sm text-white/70">
               <span className="flex items-center gap-2">
                 <MapPin size={14} className="text-[#D4A014]" />
                 Limerick, Ireland
@@ -252,25 +268,23 @@ export default function CaseStudyContent() {
 
       {/* 3.5. HEXAGON GRID — Inside Cube */}
       <section className="py-20 sm:py-28 bg-brand-darkest relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,_rgba(212,160,20,0.04)_0%,_transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(212,160,20,0.04)_0%,_transparent_60%)]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <div className="lg:col-span-5">
-              <AnimatedSection>
-                <p className="text-[#D4A014] font-semibold text-sm uppercase tracking-[0.2em] mb-4">Inside the facility</p>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text leading-tight">
-                  Three decades of <span className="text-[#D4A014]">precision.</span>
-                </h2>
-                <p className="mt-6 text-brand-muted leading-relaxed">
-                  From design to print to packaging — Cube&apos;s state-of-the-art facility in
-                  Limerick handles every stage of production under one roof. ISO 9001 certified
-                  with cGMP processes built for the med-tech sector.
-                </p>
-              </AnimatedSection>
-            </div>
-            <div className="lg:col-span-7">
-              <HexagonGrid />
-            </div>
+          <div className="text-center mb-12 lg:mb-16">
+            <AnimatedSection>
+              <p className="text-[#D4A014] font-semibold text-sm uppercase tracking-[0.2em] mb-4">Inside the facility</p>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text leading-tight">
+                Three decades of <span className="text-[#D4A014]">precision.</span>
+              </h2>
+              <p className="mt-6 text-brand-muted leading-relaxed max-w-2xl mx-auto">
+                From design to print to packaging — Cube&apos;s state-of-the-art facility in
+                Limerick handles every stage of production under one roof. ISO 9001 certified
+                with cGMP processes built for the med-tech sector.
+              </p>
+            </AnimatedSection>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <HexagonGrid />
           </div>
         </div>
       </section>

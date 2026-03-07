@@ -7,6 +7,7 @@ interface AccentHeadingProps {
   className?: string;
   delay?: number;
   as?: "h1" | "h2" | "h3";
+  accentColor?: string;
 }
 
 /**
@@ -18,6 +19,7 @@ export default function AccentHeading({
   text,
   className = "",
   delay = 0,
+  accentColor,
   as: Tag = "h2",
 }: AccentHeadingProps) {
   // Parse text into segments: normal text and **accented** text
@@ -56,7 +58,7 @@ export default function AccentHeading({
           <motion.span
             key={i}
             className={`inline-block mr-[0.25em] ${
-              item.accent ? "text-brand-cyan-bright" : ""
+              item.accent ? (accentColor || "text-brand-cyan-bright") : ""
             }`}
             variants={{
               hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
