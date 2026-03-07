@@ -19,11 +19,16 @@ const footerLinks = [
   {
     title: "Services",
     links: [
-      { label: "Business Analysis", href: "/what-we-do#analysis" },
-      { label: "Lead Generation", href: "/what-we-do#leads" },
-      { label: "Digital Presence", href: "/what-we-do#digital" },
-      { label: "Systems & Ops", href: "/what-we-do#systems" },
-      { label: "Content & Video", href: "/what-we-do#content" },
+      { label: "Business Analysis", href: "/services/business-analysis" },
+      { label: "Lead Generation", href: "/services/lead-generation" },
+      { label: "Digital Presence", href: "/services/digital-presence" },
+      { label: "Systems & Operations", href: "/services/systems-operations" },
+      { label: "Content & Video", href: "/services/content-video" },
+      { label: "AI Growth Tools", href: "/services/ai-growth-tools" },
+      { label: "Sales Enablement", href: "/services/sales-enablement" },
+      { label: "Customer Retention", href: "/services/customer-retention" },
+      { label: "Brand Positioning", href: "/services/brand-positioning" },
+      { label: "Partnerships", href: "/services/partnerships" },
     ],
   },
 ];
