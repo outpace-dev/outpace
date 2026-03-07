@@ -99,6 +99,7 @@ const pillars: Pillar[] = [
       { icon: Target, text: "Growth opportunity roadmap with clear priorities" },
       { icon: BadgeEuro, text: "Grant & funding navigation (Enterprise Ireland, LEO)" },
     ],
+    serviceLink: "/services/business-analysis",
   },
   {
     id: "leads",
@@ -155,6 +156,7 @@ const pillars: Pillar[] = [
       { icon: BarChart3, text: "Reporting dashboards & KPI tracking" },
     ],
     logos: SYSTEMS_LOGOS,
+    serviceLink: "/services/systems-operations",
   },
   {
     id: "content",
@@ -173,6 +175,7 @@ const pillars: Pillar[] = [
       { icon: Share2, text: "Content strategy & thought leadership" },
       { icon: UserPlus, text: "Employer branding & recruitment content" },
     ],
+    serviceLink: "/services/content-video",
   },
   {
     id: "ai",
@@ -227,6 +230,7 @@ const pillars: Pillar[] = [
       { icon: ArrowUpRight, text: "Upsell & cross-sell strategy" },
       { icon: RefreshCw, text: "Quarterly business reviews that deepen relationships" },
     ],
+    serviceLink: "/services/customer-retention",
   },
   {
     id: "positioning",
@@ -244,6 +248,7 @@ const pillars: Pillar[] = [
       { icon: Users, text: "ICP refinement & buyer persona development" },
       { icon: Tag, text: "Pricing & packaging strategy reviews" },
     ],
+    serviceLink: "/services/brand-positioning",
   },
   {
     id: "partnerships",
@@ -261,6 +266,7 @@ const pillars: Pillar[] = [
       { icon: Gift, text: "Co-marketing campaigns with partners" },
       { icon: Briefcase, text: "Partner enablement — collateral, training & incentives" },
     ],
+    serviceLink: "/services/partnerships",
   },
 ];
 
