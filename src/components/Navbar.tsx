@@ -13,7 +13,7 @@ const links = [
 ];
 
 const caseStudies = [
-  { href: "/case-studies/cube", label: "Cube Printing" },
+  { href: "/case-studies/cube", label: "CUBE" },
 ];
 
 export default function Navbar() {
