@@ -188,6 +188,41 @@ export default function HeroSection() {
       <GlowOrb color="rgba(52, 211, 153, 0.08)" size={500} bottom="-20%" right="-10%" delay={2} duration={12} />
       <GlowOrb color="rgba(8, 145, 178, 0.1)" size={300} top="40%" right="20%" delay={4} duration={9} />
 
+      {/* ── Layer 4.5: Giant "OUTPACE" — cinematic reveal then fade behind ── */}
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: [0, 1, 1, 0.12],
+          scale: [0.6, 1, 1, 1.15],
+          filter: [
+            "blur(20px)",
+            "blur(0px)",
+            "blur(0px)",
+            "blur(4px)",
+          ],
+        }}
+        transition={{
+          duration: 3.2,
+          times: [0, 0.25, 0.55, 1],
+          ease: "easeInOut",
+          delay: 0.1,
+        }}
+        style={{ x: geoX, y: geoY }}
+      >
+        <span
+          className="text-[20vw] sm:text-[18vw] lg:text-[16vw] font-black tracking-tighter select-none whitespace-nowrap"
+          style={{
+            background: "linear-gradient(180deg, rgba(34,211,238,0.9) 0%, rgba(52,211,153,0.6) 100%)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          OUTPACE
+        </span>
+      </motion.div>
+
       {/* ── Layer 5: Content ── */}
       <motion.div
         className="relative z-10 max-w-6xl mx-auto px-4 text-center pt-20"

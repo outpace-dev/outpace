@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#0a0f1a"/>
+  <!-- Bold italic O -->
+  <path d="
+    M105 256
+    C105 175 145 120 210 120
+    C275 120 310 175 310 256
+    C310 340 270 392 205 392
+    C140 392 105 340 105 256
+    Z
+    M175 256
+    C175 310 185 348 210 348
+    C235 348 242 310 242 256
+    C242 205 232 165 210 165
+    C185 165 175 205 175 256
+    Z
+  " fill="url(#g)" transform="skewX(-10) translate(-20,0)"/>
+  <!-- Bold italic P -->
+  <path d="
+    M260 120
+    L340 120
+    C405 120 440 155 440 200
+    C440 250 405 280 340 280
+    L310 280
+    L290 392
+    L222 392
+    Z
+    M300 170
+    L285 235
+    L330 235
+    C365 235 375 220 375 200
+    C375 182 365 170 340 170
+    Z
+  " fill="url(#g)" transform="skewX(-10) translate(-20,0)"/>
+</svg>
