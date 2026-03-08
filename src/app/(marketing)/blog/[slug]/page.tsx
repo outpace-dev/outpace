@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!post) return {};
 
   return {
-    title: `${post.title} | Outpace`,
+    title: post.title,
     description: post.metaDescription,
     openGraph: {
       title: post.title,
@@ -44,21 +44,25 @@ export default async function BlogPost({ params }: Props) {
   const related = getRelatedPosts(post);
 
   /* ── Article structured data for rich results ── */
+  const canonicalUrl = `https://outpace-murex.vercel.app/blog/${slug}`;
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
     description: post.metaDescription,
     datePublished: post.publishDate,
+    dateModified: post.publishDate,
+    url: canonicalUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
     author: {
-      "@type": "Person",
+      "@type": "Organization",
       name: post.author.name,
-      jobTitle: post.author.role,
+      url: "https://outpace-murex.vercel.app",
     },
     publisher: {
       "@type": "Organization",
       name: "Outpace",
-      url: "https://outpace.ie",
+      url: "https://outpace-murex.vercel.app",
     },
     articleSection: category.label,
   };

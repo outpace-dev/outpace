@@ -55,9 +55,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "02",
     pillarId: "leads",
     title: "B2B lead generation that actually **fills your pipeline.**",
-    metaTitle: "B2B Lead Generation Services | Outpace",
+    metaTitle: "B2B Lead Generation Services Ireland",
     metaDescription:
-      "Multi-channel outbound lead generation — email sequences, AI-powered calling, prospect list building, and meeting booking. Fill your pipeline with qualified decision-makers.",
+      "Multi-channel outbound lead generation — email sequences, AI-powered calling, and meeting booking. Fill your pipeline with qualified decision-makers.",
     subtitle:
       "Most businesses rely on referrals and hope for the best. We build a predictable outbound engine that puts your offer in front of the right decision-makers — every single week.",
     gradient: "from-emerald-400 to-teal-500",
@@ -159,9 +159,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "03",
     pillarId: "digital",
     title: "A digital presence that works as hard as your **sales team.**",
-    metaTitle: "Digital Marketing & Web Development | Outpace",
+    metaTitle: "Digital Marketing & Web Development Ireland",
     metaDescription:
-      "Websites, SEO, paid advertising, and social media — built as an integrated system. We make sure you're found, trusted, and chosen when prospects search for what you do.",
+      "Websites, SEO, paid advertising, and social media — built as an integrated system. Get found, trusted, and chosen when prospects search for what you do.",
     subtitle:
       "Your website should be your best salesperson — not a brochure people glance at and forget. We build digital presence that generates leads, not just looks good.",
     gradient: "from-violet-400 to-purple-500",
@@ -263,9 +263,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "06",
     pillarId: "ai",
     title: "AI tools that sell while you **sleep.**",
-    metaTitle: "AI Sales Tools & Automation | Outpace",
+    metaTitle: "AI Sales Tools & Automation Ireland",
     metaDescription:
-      "Practical AI built into your sales process — voice agents, chatbots, auto-generated proposals, and personalised landing pages. Not experimental. Live and generating pipeline.",
+      "Practical AI for your sales process — voice agents, chatbots, auto-generated proposals, and personalised landing pages. Live and generating pipeline.",
     subtitle:
       "Everyone's talking about AI. We're actually building it into sales processes — voice agents that run discovery calls, chatbots that qualify leads at 3am, and systems that generate proposals in minutes.",
     gradient: "from-cyan-400 to-emerald-400",
@@ -367,9 +367,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "07",
     pillarId: "sales",
     title: "Turn your sales team into a **closing machine.**",
-    metaTitle: "Sales Enablement & Training | Outpace",
+    metaTitle: "Sales Enablement & Training Ireland",
     metaDescription:
-      "Sales playbooks, discovery call coaching, objection handling frameworks, and process optimisation. We work with your team to close more of the pipeline you're already generating.",
+      "Sales playbooks, discovery call coaching, objection handling, and process optimisation. Help your team close more of the pipeline you generate.",
     subtitle:
       "No point filling a pipeline if your team can't close it. We work with your salespeople — not instead of them — to sharpen their pitch, tighten their process, and turn more conversations into revenue.",
     gradient: "from-indigo-400 to-blue-500",
@@ -469,9 +469,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "01",
     pillarId: "analysis",
     title: "Know your business inside-out before you **spend a cent.**",
-    metaTitle: "Business Analysis & Growth Strategy | Outpace",
+    metaTitle: "Business Analysis & Growth Strategy Ireland",
     metaDescription:
-      "Deep-dive business analysis — competitive mapping, target market identification, USP documentation, and growth roadmaps. Understand your business before you invest in growth.",
+      "Deep-dive business analysis — competitive mapping, target market identification, and growth roadmaps. Understand your business before you invest.",
     subtitle:
       "Most businesses jump straight into marketing without knowing what makes them different. We sit with your team, learn your business inside-out, and build a plan that's worth following.",
     gradient: "from-cyan-400 to-blue-500",
@@ -571,7 +571,7 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "04",
     pillarId: "systems",
     title: "Build the systems that let your business **actually scale.**",
-    metaTitle: "CRM Implementation & Business Systems | Outpace",
+    metaTitle: "CRM Implementation & Business Systems Ireland",
     metaDescription:
       "CRM implementation, process mapping, workflow automation, and reporting dashboards. We build the operational backbone that lets your business scale without the chaos.",
     subtitle:
@@ -675,9 +675,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "05",
     pillarId: "content",
     title: "Content that builds trust before the **first meeting.**",
-    metaTitle: "Video Production & Content Strategy | Outpace",
+    metaTitle: "Video Production & Content Strategy Ireland",
     metaDescription:
-      "Professional video production, content strategy, and thought leadership — management interviews, client testimonials, brand films, and social media content that builds trust and drives enquiries.",
+      "Professional video production, content strategy, and thought leadership. Client testimonials, brand films, and social media content that builds trust and drives enquiries.",
     subtitle:
       "People buy from companies they trust. We produce professional video content and build a content strategy that positions you as the authority in your space — so prospects are already sold before they pick up the phone.",
     gradient: "from-rose-400 to-pink-500",
@@ -777,9 +777,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "08",
     pillarId: "retention",
     title: "Stop losing clients you already **won.**",
-    metaTitle: "Customer Retention & Account Growth | Outpace",
+    metaTitle: "Customer Retention & Account Growth Ireland",
     metaDescription:
-      "Client health scoring, churn prevention, upsell strategy, and quarterly business reviews. We build retention systems that keep your best clients and grow their accounts.",
+      "Client health scoring, churn prevention, upsell strategy, and quarterly business reviews. Keep your best clients and grow their accounts.",
     subtitle:
       "Your easiest revenue is already in your database. We build the systems that keep your best clients from drifting away — and grow the accounts you've already won.",
     gradient: "from-teal-400 to-cyan-500",
@@ -879,7 +879,7 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "09",
     pillarId: "positioning",
     title: "Get crystal clear on who you're for and why they should **care.**",
-    metaTitle: "Brand Positioning & Go-To-Market Strategy | Outpace",
+    metaTitle: "Brand Positioning & Go-To-Market Strategy Ireland",
     metaDescription:
       "Brand positioning, messaging frameworks, ICP development, go-to-market strategy, and competitive differentiation. Get clear before you spend a cent on marketing.",
     subtitle:
@@ -981,9 +981,9 @@ export const SERVICE_CONFIGS: Record<string, ServicePageConfig> = {
     pillarNumber: "10",
     pillarId: "partnerships",
     title: "Turn your network into a predictable source of **warm introductions.**",
-    metaTitle: "Partnership & Referral Programme Development | Outpace",
+    metaTitle: "Partnership & Referral Programme Development Ireland",
     metaDescription:
-      "Strategic partner identification, referral programme design, co-marketing campaigns, and channel partner strategy. Turn word-of-mouth into a repeatable, scalable growth channel.",
+      "Strategic partner identification, referral programme design, and co-marketing campaigns. Turn word-of-mouth into a repeatable growth channel.",
     subtitle:
       "Your best clients know other businesses just like them — but most referrals happen by accident. We build the systems that make word-of-mouth predictable, trackable, and scalable.",
     gradient: "from-lime-400 to-emerald-500",

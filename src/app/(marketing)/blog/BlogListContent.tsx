@@ -17,7 +17,7 @@ export default function BlogListContent() {
     : allPosts.filter((p) => p.category === activeCategory);
 
   return (
-    <main className="min-h-screen bg-brand-darkest">
+    <div className="min-h-screen bg-brand-darkest">
       {/* Hero */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <GlowOrb color="rgba(34, 211, 238, 0.08)" size={500} top="-10%" left="60%" />
@@ -62,6 +62,6 @@ export default function BlogListContent() {
           </div>
         )}
       </section>
-    </main>
+    </div>
   );
 }

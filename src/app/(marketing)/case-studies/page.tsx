@@ -7,7 +7,7 @@ import GlowOrb from "@/components/GlowOrb";
 import { ArrowRight, Factory, MapPin, Shield } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Case Studies | Outpace",
+  title: "Case Studies",
   description:
     "See how Outpace delivers full-spectrum business development results for clients across Ireland and beyond.",
 };

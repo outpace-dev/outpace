@@ -18,6 +18,7 @@ export async function generateMetadata({
   return {
     title: config.heroTitle,
     description: config.heroSubtitle,
+    robots: { index: false, follow: false },
   };
 }
 

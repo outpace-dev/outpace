@@ -302,7 +302,7 @@ export const BLOG_POSTS: Record<string, BlogPostConfig> = {
     slug: "end-of-referral-dependency-predictable-pipeline",
     title: "The End of Referral Dependency: Building a Predictable Pipeline",
     metaDescription:
-      "Stop relying on referrals. Learn how to build a predictable sales pipeline that delivers consistent revenue month after month.",
+      "Stop relying on referrals for new business. Learn how to build a predictable sales pipeline that delivers consistent, measurable revenue every month.",
     category: "lead-generation",
     author: DEFAULT_AUTHOR,
     publishDate: "2026-01-27",
@@ -359,7 +359,7 @@ export const BLOG_POSTS: Record<string, BlogPostConfig> = {
     title:
       "Why Your Website Is a Brochure (And How to Turn It Into a Salesperson)",
     metaDescription:
-      "Your website should generate leads, not just look pretty. Learn how to turn a static brochure site into a lead-generating machine.",
+      "Your website should generate leads, not just look pretty. Learn how to turn a static brochure site into a conversion-focused lead generation machine for your business.",
     category: "digital-presence",
     author: DEFAULT_AUTHOR,
     publishDate: "2026-02-03",
@@ -734,7 +734,7 @@ export const BLOG_POSTS: Record<string, BlogPostConfig> = {
     slug: "5-ai-tools-every-irish-sme-should-use",
     title: "5 AI Tools Every Irish SME Should Be Using Right Now",
     metaDescription:
-      "Five practical AI tools that save Irish SMEs time and money today. No hype, just tools that work for real business operations.",
+      "Five practical AI tools that save Irish SMEs real time and money right now. No hype or buzzwords — just proven tools that work for everyday business operations.",
     category: "ai-growth-tools",
     author: DEFAULT_AUTHOR,
     publishDate: "2026-01-17",
@@ -847,7 +847,7 @@ export const BLOG_POSTS: Record<string, BlogPostConfig> = {
     slug: "sales-process-costing-you-deals-how-to-fix",
     title: "Why Your Sales Process Is Costing You Deals",
     metaDescription:
-      "Common sales process mistakes that silently kill deals. Learn how to diagnose and fix the leaks in your pipeline.",
+      "Common sales process mistakes that silently kill deals before you even know they are lost. Learn how to diagnose and fix the leaks in your pipeline.",
     category: "sales-enablement",
     author: DEFAULT_AUTHOR,
     publishDate: "2026-01-31",
@@ -1013,7 +1013,7 @@ export const BLOG_POSTS: Record<string, BlogPostConfig> = {
     slug: "not-too-small-for-brand-strategy-irish-smes",
     title: "You're Not Too Small for a Brand Strategy",
     metaDescription:
-      "Brand strategy is not just for big companies. Learn why Irish SMEs need brand positioning and how to build one on any budget.",
+      "Brand strategy is not just for big companies with big budgets. Learn why Irish SMEs need clear brand positioning and how to build one that drives growth.",
     category: "brand-positioning",
     author: DEFAULT_AUTHOR,
     publishDate: "2026-02-21",
@@ -1065,7 +1065,7 @@ export const BLOG_POSTS: Record<string, BlogPostConfig> = {
     slug: "how-to-price-services-without-racing-to-bottom",
     title: "How to Price Your Services Without Racing to the Bottom",
     metaDescription:
-      "Stop competing on price. Learn value-based pricing strategies that let you charge what you're worth and win better clients.",
+      "Stop competing on price and attracting the wrong clients. Learn value-based pricing strategies that let you charge what you are worth and win premium work.",
     category: "brand-positioning",
     author: DEFAULT_AUTHOR,
     publishDate: "2026-02-28",
