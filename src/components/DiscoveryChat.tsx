@@ -361,13 +361,13 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
         </div>
         <h3 className="text-white font-bold text-xl mb-3">
           {pageConfig?.contactName
-            ? `${pageConfig.contactName}, let\u2019s talk growth`
+            ? `${pageConfig.contactName}, let\u2019s have a quick chat`
             : "Ready for your free growth consultation?"}
         </h3>
         <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
           {pageConfig?.contactName
-            ? "We\u2019ve done our homework on your business. A quick 10-minute conversation and our team will put together a tailored growth proposal for you."
-            : "A quick 10-minute conversation about your business, and we\u2019ll put together a tailored growth proposal. No obligation."}
+            ? "Here\u2019s how it works: we\u2019ll ask a few questions about your business \u2014 how you\u2019re winning work, what\u2019s frustrating, where you want to grow. Then our team puts together a free proposal with specific recommendations. No cost, no strings."
+            : "A quick conversation about your business, and we\u2019ll put together a free proposal with specific ideas for how to grow. No obligation."}
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
