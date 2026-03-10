@@ -45,10 +45,10 @@ export default function PersonalisedDiscoveryPage({
             sizes="100vw"
             priority
           />
-          {/* Smooth bottom fade */}
+          {/* Smooth bottom fade — full height, no hard line */}
           <div
-            className="absolute inset-x-0 bottom-0 h-[70%]"
-            style={{ background: "linear-gradient(to top, #0a0f1a 0%, #0a0f1a 8%, transparent 100%)" }}
+            className="absolute inset-0"
+            style={{ background: "linear-gradient(to top, #0a0f1a 0%, #0a0f1a 5%, rgba(10,15,26,0.85) 25%, rgba(10,15,26,0.5) 50%, rgba(10,15,26,0.2) 75%, transparent 100%)" }}
           />
           {/* Subtle side vignette */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a0f1a]/30 via-transparent to-[#0a0f1a]/30" />
