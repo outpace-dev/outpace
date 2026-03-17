@@ -297,41 +297,43 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 4. THE BRIEF */}
-      <section className="py-20 sm:py-28 bg-[#141414]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <AccentHeading
-              text="The **Brief.**"
-              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
-              accentColor="text-[#D4A014]"
-            />
-            <AnimatedSection delay={0.2}>
-              <p className="mt-6 text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
-                Cube had the expertise and the equipment. What they didn&apos;t
-                have was a way to tell the world about it.
-              </p>
-            </AnimatedSection>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {challenges.map((c, i) => (
-              <AnimatedSection key={c.title} delay={i * 0.15}>
-                <TiltCard className="h-full">
-                  <div className="relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/[0.08] h-full group hover:border-[#D4A014]/30 transition-all duration-500">
-                    <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
-                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 flex items-center justify-center mb-6 group-hover:border-red-400/40 transition-colors duration-500">
-                      <c.icon className="text-red-400" size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold text-brand-text mb-3">
-                      {c.title}
-                    </h3>
-                    <p className="text-sm text-brand-muted leading-relaxed">
-                      {c.desc}
-                    </p>
-                  </div>
-                </TiltCard>
+      <section className="py-20 sm:py-28 bg-[#141414] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgba(239,68,68,0.04)_0%,_transparent_50%)]" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div>
+              <AccentHeading
+                text="The **Brief.**"
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+                accentColor="text-[#D4A014]"
+              />
+              <AnimatedSection delay={0.2}>
+                <p className="mt-6 text-lg text-brand-muted leading-relaxed">
+                  Cube had the expertise and the equipment. What they didn&apos;t
+                  have was a way to tell the world about it.
+                </p>
               </AnimatedSection>
-            ))}
+            </div>
+
+            <div className="space-y-6">
+              {challenges.map((c, i) => (
+                <AnimatedSection key={c.title} delay={i * 0.12}>
+                  <div className="flex items-start gap-5 group">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center mt-0.5 group-hover:bg-red-500/20 transition-colors duration-300">
+                      <c.icon className="text-red-400" size={18} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-brand-text group-hover:text-white transition-colors duration-300">
+                        {c.title}
+                      </h3>
+                      <p className="mt-1 text-sm text-brand-muted leading-relaxed">
+                        {c.desc}
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
+            </div>
           </div>
         </div>
       </section>
