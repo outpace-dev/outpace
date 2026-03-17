@@ -297,43 +297,35 @@ export default function CaseStudyContent() {
       </section>
 
       {/* 4. THE BRIEF */}
-      <section className="py-20 sm:py-28 bg-[#141414] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,_rgba(239,68,68,0.04)_0%,_transparent_50%)]" />
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <AccentHeading
-                text="The **Brief.**"
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
-                accentColor="text-[#D4A014]"
-              />
-              <AnimatedSection delay={0.2}>
-                <p className="mt-6 text-lg text-brand-muted leading-relaxed">
-                  Cube had the expertise and the equipment. What they didn&apos;t
-                  have was a way to tell the world about it.
-                </p>
-              </AnimatedSection>
-            </div>
+      <section className="py-20 sm:py-28 bg-[#141414]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <AccentHeading
+              text="The **Brief.**"
+              className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-text"
+              accentColor="text-[#D4A014]"
+            />
+            <AnimatedSection delay={0.2}>
+              <p className="mt-6 text-lg text-brand-muted max-w-2xl mx-auto leading-relaxed">
+                Cube had the expertise and the equipment. What they didn&apos;t
+                have was a way to tell the world about it.
+              </p>
+            </AnimatedSection>
+          </div>
 
-            <div className="space-y-6">
-              {challenges.map((c, i) => (
-                <AnimatedSection key={c.title} delay={i * 0.12}>
-                  <div className="flex items-start gap-5 group">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center mt-0.5 group-hover:bg-red-500/20 transition-colors duration-300">
-                      <c.icon className="text-red-400" size={18} />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-brand-text group-hover:text-white transition-colors duration-300">
-                        {c.title}
-                      </h3>
-                      <p className="mt-1 text-sm text-brand-muted leading-relaxed">
-                        {c.desc}
-                      </p>
-                    </div>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
+          <div className="space-y-0 divide-y divide-white/[0.06]">
+            {challenges.map((c, i) => (
+              <AnimatedSection key={c.title} delay={i * 0.1}>
+                <div className="py-7 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-8">
+                  <h3 className="text-white font-semibold text-lg sm:min-w-[220px] sm:flex-shrink-0">
+                    {c.title}
+                  </h3>
+                  <p className="text-brand-muted text-sm leading-relaxed">
+                    {c.desc}
+                  </p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
