@@ -175,29 +175,6 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ═══════ WHAT WE DELIVER ═══════ */}
-      <section className="py-20 sm:py-28 bg-brand-darkest">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <AccentHeading
-                text="What you actually **get.**"
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-brand-text"
-              />
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
-            {dos.map((item, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="flex items-start gap-4">
-                  <Check size={20} className="text-brand-cyan-bright mt-0.5 shrink-0" />
-                  <span className="text-lg text-brand-text leading-snug">{item}</span>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ═══════ GRADIENT DIVIDER ═══════ */}
       <div className="gradient-divider" />
