@@ -16,8 +16,11 @@ CREATE TABLE IF NOT EXISTS voice_conversations (
 -- RLS: allow inserts and selects from anon key (webhook runs server-side)
 ALTER TABLE voice_conversations ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Allow insert from service" ON voice_conversations
-  FOR INSERT TO anon WITH CHECK (true);
-
-CREATE POLICY "Allow select from service" ON voice_conversations
-  FOR SELECT TO anon USING (true);
+DO $$ BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Allow insert from service' AND tablename = 'voice_conversations') THEN
+    CREATE POLICY "Allow insert from service" ON voice_conversations FOR INSERT TO anon WITH CHECK (true);
+  END IF;
+  IF NOT EXISTS (SELECT 1 FROM pg_policies WHERE policyname = 'Allow select from service' AND tablename = 'voice_conversations') THEN
+    CREATE POLICY "Allow select from service" ON voice_conversations FOR SELECT TO anon USING (true);
+  END IF;
+END $$;

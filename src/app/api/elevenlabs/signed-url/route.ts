@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { buildDiscoverySystemPrompt } from "@/lib/discovery-prompt";
-import { PAGE_CONFIGS } from "@/lib/discovery-configs";
+import { loadDiscoveryConfig } from "@/lib/discovery-config-loader";
 import { createEmptyExtractedData } from "@/lib/consultation-defaults";
 import type { ExtractedConsultationData } from "@/lib/types";
 
@@ -8,8 +8,9 @@ import type { ExtractedConsultationData } from "@/lib/types";
  * Generate a signed URL for the ElevenLabs ConvAI Discovery agent.
  * POST /api/elevenlabs/signed-url
  *
- * Returns a signed URL + the system prompt to use as an override.
- * Keeps ELEVENLABS_API_KEY server-side (never exposed to browser).
+ * SECURITY: The system prompt and first message are configured on the
+ * ElevenLabs agent server-side via the Update Agent API — they are
+ * NEVER returned to the browser. The client receives only the signed URL.
  */
 
 const API_BASE = "https://api.elevenlabs.io";
@@ -32,26 +33,47 @@ export async function POST(req: NextRequest) {
     const currentData: ExtractedConsultationData =
       body.currentData || createEmptyExtractedData();
 
-    // Build the discovery system prompt (same one used by text chat)
-    const pageConfig = slug ? PAGE_CONFIGS[slug] : undefined;
+    // Load config from Supabase (sensitive) + codebase (non-sensitive)
+    const pageConfig = slug ? await loadDiscoveryConfig(slug) : undefined;
     const systemPrompt = buildDiscoverySystemPrompt(currentData, pageConfig);
 
-    // Build first message — personalized if we have page config, generic otherwise
-    // Research-backed: keep it SHORT, get a "small yes" early, get them talking within 10-15 seconds
+    // Build first message
     let firstMessage: string;
     if (pageConfig?.firstMessage) {
       firstMessage = pageConfig.firstMessage;
     } else if (pageConfig?.customQuestionFramework) {
-      // Custom page without explicit firstMessage
       firstMessage =
-        `Hey! I'm from Outpace — we're a growth consultancy. We've done a bit of research on your business already, so I've got some good context. What I'd love to do is ask you a few questions so our team can put together a tailored growth proposal. Takes about ten minutes. Sound good?`;
+        "Hey! I'm from Outpace — we're a growth consultancy. We've done a bit of research on your business already, so I've got some good context. What I'd love to do is ask you a few questions so our team can put together a tailored growth proposal. Takes about ten minutes. Sound good?";
     } else {
-      // Generic discovery page
       firstMessage =
         "Hey! I'm from Outpace — we're a growth consultancy for businesses in Ireland and the UK. I'd love to ask you a few questions about your business so our team can put together some tailored recommendations. Takes about ten minutes. Sound good?";
     }
 
-    // Get signed URL from ElevenLabs
+    // ── Step 1: Patch the ElevenLabs agent with the prompt server-side ──
+    // This means the prompt lives on ElevenLabs' servers, NOT in the browser.
+    const patchRes = await fetch(`${API_BASE}/v1/convai/agents/${agentId}`, {
+      method: "PATCH",
+      headers: {
+        "xi-api-key": apiKey,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        conversation_config: {
+          agent: {
+            prompt: { prompt: systemPrompt },
+            first_message: firstMessage,
+          },
+        },
+      }),
+    });
+
+    if (!patchRes.ok) {
+      const errText = await patchRes.text();
+      console.error("[Signed URL] Agent patch error:", patchRes.status, errText);
+      // Non-fatal: fall back to existing agent config if patch fails
+    }
+
+    // ── Step 2: Get signed URL (prompt is already on the agent) ──
     const response = await fetch(
       `${API_BASE}/v1/convai/conversation/get-signed-url?agent_id=${agentId}`,
       {
@@ -74,10 +96,9 @@ export async function POST(req: NextRequest) {
 
     const data = await response.json();
 
+    // ── SECURITY: Only return the signed URL — no prompt, no first message ──
     return NextResponse.json({
       signedUrl: data.signed_url,
-      systemPrompt,
-      firstMessage,
     });
   } catch (err) {
     console.error("[Signed URL] Error:", err);

@@ -3,7 +3,7 @@ import { anthropic } from "@ai-sdk/anthropic";
 import { z } from "zod";
 import { buildDiscoverySystemPrompt } from "@/lib/discovery-prompt";
 import { createEmptyExtractedData } from "@/lib/consultation-defaults";
-import { PAGE_CONFIGS } from "@/lib/discovery-configs";
+import { loadDiscoveryConfig } from "@/lib/discovery-config-loader";
 import type {
   ExtractedConsultationData,
   ConsultationStage,
@@ -84,7 +84,9 @@ export async function POST(req: Request) {
   const currentData: ExtractedConsultationData =
     body.currentData ?? createEmptyExtractedData();
   const slug: string | undefined = body.slug;
-  const pageConfig = slug ? PAGE_CONFIGS[slug] : undefined;
+
+  // Load config from Supabase (sensitive data) merged with codebase (non-sensitive)
+  const pageConfig = slug ? await loadDiscoveryConfig(slug) : undefined;
 
   const systemPrompt = buildDiscoverySystemPrompt(currentData, pageConfig);
   const modelMessages = await convertToModelMessages(messages);

@@ -34,3 +34,7 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# sensitive discovery agent config (prompts stored in Supabase, not repo)
+supabase/migrations/003_seed_rayn_config.sql
+transcript.json

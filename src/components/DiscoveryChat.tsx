@@ -67,8 +67,23 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
     [slug]
   );
 
+  // Build the initial assistant message so the AI "remembers" its opener.
+  // For personalised pages (e.g. RAYN), the full first message lives in Supabase
+  // and is loaded server-side. Client-side we show a personalised but generic opener.
+  const firstMessageText = pageConfig?.firstMessage
+    ?? (pageConfig?.contactName
+      ? `Hey ${pageConfig.contactName}! Thanks for jumping on. I'm from Outpace — we help businesses like ${pageConfig.companyName || "yours"} win more clients and grow. The plan is dead simple: I ask you a few questions about the business, then our team puts together a free proposal with specific recommendations. No cost, no strings. Sound good?`
+      : "Hi there! I'm your growth consultant from Outpace. I'd love to learn about your business and explore how we might help you grow. This'll take about 10 minutes, and we'll have a tailored proposal ready for you within 24 hours. Let's get started — tell me a bit about what your company does?");
+
   const { messages, sendMessage, status, error } = useChat({
     transport,
+    initialMessages: [
+      {
+        id: "first-message",
+        role: "assistant" as const,
+        parts: [{ type: "text" as const, text: firstMessageText }],
+      },
+    ],
     onToolCall: async ({
       toolCall,
     }: {
@@ -224,23 +239,15 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
         return;
       }
 
-      const { signedUrl, systemPrompt, firstMessage } = await res.json();
+      const { signedUrl } = await res.json();
       console.log("[ConvAI] Got signed URL:", signedUrl?.substring(0, 50) + "...");
-      console.log("[ConvAI] Prompt length:", systemPrompt?.length, "firstMessage length:", firstMessage?.length);
       setVoiceStep("Connecting...");
 
       // Step 3: Start ConvAI session (mic already permitted)
+      // Prompt and first message are configured server-side on the agent —
+      // no overrides needed, keeping the prompt out of the browser.
       const sessionPromise = conversation.startSession({
         signedUrl,
-        overrides: {
-          agent: {
-            prompt: { prompt: systemPrompt },
-            firstMessage,
-          },
-          tts: {
-            voiceId: "hmMWXCj9K7N5mCPcRkfC",
-          },
-        },
       });
 
       const timeoutPromise = new Promise<never>((_, reject) =>
@@ -556,36 +563,6 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
 
       {/* ── Messages (text mode) ── */}
       <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-6 py-4 space-y-4">
-        {/* Initial greeting (text mode only) */}
-        {!voiceMode && messages.length === 0 && (
-          <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500/20 to-emerald-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-[10px] font-bold shrink-0">
-              OP
-            </div>
-            <div className="bg-slate-800/50 border border-slate-700/40 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
-              {pageConfig?.firstMessage ? (
-                <p className="text-slate-200 text-sm leading-relaxed">
-                  {pageConfig.firstMessage}
-                </p>
-              ) : (
-                <>
-                  <p className="text-slate-200 text-sm leading-relaxed">
-                    Hi there! 👋 I&apos;m your growth consultant from Outpace.
-                    I&apos;d love to learn about your business and explore how we
-                    might help you grow. This&apos;ll take about 10 minutes, and
-                    we&apos;ll have a tailored proposal ready for you within 24
-                    hours.
-                  </p>
-                  <p className="text-slate-200 text-sm leading-relaxed mt-2">
-                    Let&apos;s get started — tell me a bit about what your company
-                    does?
-                  </p>
-                </>
-              )}
-            </div>
-          </div>
-        )}
-
         {messages.map((message) => {
           const textParts = message.parts.filter(
             (p): p is { type: "text"; text: string } =>

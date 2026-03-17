@@ -110,6 +110,23 @@ export default function PersonalisedDiscoveryPage({
         </div>
       </section>
 
+      {/* ── Value Props ── */}
+      {config.valueProps && config.valueProps.length > 0 && (
+        <section className="px-6 pt-4 pb-2">
+          <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
+            {config.valueProps.map((vp) => (
+              <div
+                key={vp}
+                className="bg-[#0d1525]/80 border border-slate-700/50 rounded-xl p-4 text-center group hover:border-cyan-500/30 transition-colors duration-300"
+              >
+                <div className="w-2 h-2 rounded-full bg-cyan-400/60 mx-auto mb-2.5" />
+                <p className="text-slate-400 text-xs leading-relaxed">{vp}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── Scroll hint ── */}
       <ScrollChevron />
 
