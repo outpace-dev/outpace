@@ -175,45 +175,26 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* ═══════ DO / DON'T ═══════ */}
+      {/* ═══════ WHAT WE DELIVER ═══════ */}
       <section className="py-20 sm:py-28 bg-brand-darkest">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* DON'T column */}
-            <AnimatedSection>
-              <div className="p-8 rounded-2xl border border-red-500/20 bg-red-500/[0.03]">
-                <h3 className="text-xl font-bold font-display text-red-400 mb-6 flex items-center gap-2">
-                  <X size={24} className="shrink-0" />
-                  We don&apos;t do
-                </h3>
-                <ul className="space-y-4">
-                  {donts.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <X size={16} className="text-red-400/60 mt-1 shrink-0" />
-                      <span className="text-brand-muted">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
-
-            {/* DO column */}
-            <AnimatedSection delay={0.15}>
-              <div className="p-8 rounded-2xl border border-brand-cyan/20 bg-brand-cyan/[0.03]">
-                <h3 className="text-xl font-bold font-display text-brand-cyan-bright mb-6 flex items-center gap-2">
-                  <Check size={24} className="shrink-0" />
-                  We do
-                </h3>
-                <ul className="space-y-4">
-                  {dos.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <Check size={16} className="text-brand-cyan-bright/60 mt-1 shrink-0" />
-                      <span className="text-brand-text">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </AnimatedSection>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-14">
+              <AccentHeading
+                text="What you actually **get.**"
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-brand-text"
+              />
+            </div>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
+            {dos.map((item, i) => (
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="flex items-start gap-4">
+                  <Check size={20} className="text-brand-cyan-bright mt-0.5 shrink-0" />
+                  <span className="text-lg text-brand-text leading-snug">{item}</span>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
