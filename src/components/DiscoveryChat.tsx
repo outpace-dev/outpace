@@ -388,7 +388,7 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
           </button>
         </div>
         <p className="text-slate-600 text-xs mt-5">
-          No sign-up required &middot; Completely free &middot; Proposal within 24 hours
+          No sign-up required &middot; Completely free &middot; Fast proposal turnaround
         </p>
       </div>
     );

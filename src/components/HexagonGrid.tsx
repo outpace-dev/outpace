@@ -19,7 +19,7 @@ const honeycombRows: HexCell[][] = [
   ],
   [
     { type: "image", src: "/images/facility-f7.jpg", alt: "Quality control process" },
-    { type: "logo", src: "/images/cube-icon-black-gold.svg", alt: "Cube logo" },
+    { type: "logo", src: "/images/cube-logo-real.png", alt: "Cube logo" },
     { type: "image", src: "/images/hex-h7.jpg", alt: "Production inspection" },
   ],
   [

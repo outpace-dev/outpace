@@ -31,7 +31,7 @@ const contactInfo = [
   {
     icon: Clock,
     label: "Response Time",
-    value: "Within 24 hours",
+    value: "We respond fast",
     href: null,
   },
 ];

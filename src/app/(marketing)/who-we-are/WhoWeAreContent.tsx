@@ -44,14 +44,16 @@ const team = [
     name: "Colm Ring",
     role: "Co-Founder & CEO",
     initials: "CR",
+    photo: "/images/colm-ring.jpg",
     bio: "Colm's background is in business strategy, operations, and commercial development. He's built and scaled systems that actually drive revenue — and he runs Outpace with the same operator's mindset: if it doesn't move the needle, it doesn't make the cut.",
-    linkedin: "https://www.linkedin.com/in/colm-ring",
+    linkedin: "https://www.linkedin.com/in/colmring",
     gradient: "from-brand-cyan to-brand-teal",
   },
   {
     name: "Holly Purnell",
     role: "Co-Founder & CMO",
     initials: "HP",
+    photo: "/images/holly-purnell.jpg",
     bio: "Holly runs Outpace's marketing engine — digital marketing, brand building, content strategy, and campaign execution. She's the reason clients don't just get a strategy deck, they get campaigns that actually reach the right people and convert.",
     linkedin: "https://www.linkedin.com/in/holly-purnell",
     gradient: "from-brand-emerald to-brand-cyan",
@@ -229,10 +231,16 @@ export default function WhoWeAreContent() {
                     <div className="relative mx-auto w-28 h-28 mb-6">
                       <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${t.gradient} opacity-20 group-hover:opacity-40 transition-opacity duration-500 animate-pulse-glow`} />
                       <div className="relative w-28 h-28 rounded-full bg-brand-dark border-2 border-brand-border group-hover:border-brand-cyan-bright transition-all duration-500 flex items-center justify-center overflow-hidden grayscale group-hover:grayscale-0">
-                        <div className={`absolute inset-0 bg-gradient-to-br ${t.gradient} opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-                        <span className="relative text-3xl font-bold text-shimmer">
-                          {t.initials}
-                        </span>
+                        {t.photo ? (
+                          <img src={t.photo} alt={t.name} className="absolute inset-0 w-full h-full object-cover" />
+                        ) : (
+                          <>
+                            <div className={`absolute inset-0 bg-gradient-to-br ${t.gradient} opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
+                            <span className="relative text-3xl font-bold text-shimmer">
+                              {t.initials}
+                            </span>
+                          </>
+                        )}
                       </div>
                     </div>
 

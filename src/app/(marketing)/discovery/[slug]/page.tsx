@@ -194,7 +194,7 @@ export default function PersonalisedDiscoveryPage({
               <p className="text-white font-semibold text-sm mb-2">Tailored proposal</p>
               <p className="text-slate-400 text-xs leading-relaxed">A growth strategy built around your specific market, not a generic template</p>
             </div>
-            {/* Within 24 hours */}
+            {/* Fast turnaround */}
             <div className="relative bg-[#0d1525]/80 border border-slate-700/50 rounded-xl p-6 text-center group hover:border-cyan-500/30 transition-colors duration-300 overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-cyan-500/60 to-transparent" />
               <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto mb-4 text-cyan-400 group-hover:bg-cyan-500/15 transition-colors">
@@ -203,8 +203,8 @@ export default function PersonalisedDiscoveryPage({
                   <polyline points="12 6 12 12 16 14" />
                 </svg>
               </div>
-              <p className="text-white font-semibold text-sm mb-2">Within 24 hours</p>
-              <p className="text-slate-400 text-xs leading-relaxed">Our team reviews every insight from the conversation and delivers fast</p>
+              <p className="text-white font-semibold text-sm mb-2">Fast turnaround</p>
+              <p className="text-slate-400 text-xs leading-relaxed">Our team reviews every insight from the conversation and delivers promptly</p>
             </div>
             {/* Clear next steps */}
             <div className="relative bg-[#0d1525]/80 border border-slate-700/50 rounded-xl p-6 text-center group hover:border-cyan-500/30 transition-colors duration-300 overflow-hidden">
