@@ -313,18 +313,19 @@ export default function CaseStudyContent() {
             </AnimatedSection>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {challenges.map((c, i) => (
-              <AnimatedSection key={c.title} delay={i * 0.1}>
+              <AnimatedSection key={c.title} delay={i * 0.15}>
                 <TiltCard className="h-full">
-                  <div className="p-8 rounded-2xl bg-white/[0.04] border border-white/[0.08] h-full">
-                    <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
-                      <c.icon className="text-red-400" size={22} />
+                  <div className="relative p-8 rounded-2xl bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-white/[0.08] h-full group hover:border-[#D4A014]/30 transition-all duration-500">
+                    <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-red-500/40 to-transparent" />
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-red-500/20 to-red-500/5 border border-red-500/20 flex items-center justify-center mb-6 group-hover:border-red-400/40 transition-colors duration-500">
+                      <c.icon className="text-red-400" size={24} />
                     </div>
-                    <h3 className="text-lg font-bold text-brand-text">
+                    <h3 className="text-xl font-bold text-brand-text mb-3">
                       {c.title}
                     </h3>
-                    <p className="mt-3 text-sm text-brand-muted leading-relaxed">
+                    <p className="text-sm text-brand-muted leading-relaxed">
                       {c.desc}
                     </p>
                   </div>
