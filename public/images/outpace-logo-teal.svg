@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="80">
+  <style>
+    .b { font-family: Inter, Helvetica Neue, Arial, sans-serif; font-size: 48px; font-weight: 800; fill: #2dd4bf; }
+    .l { font-family: Inter, Helvetica Neue, Arial, sans-serif; font-size: 48px; font-weight: 300; fill: #2dd4bf; }
+  </style>
+  <text y="55">
+    <tspan x="10" class="b">OUT</tspan><tspan class="l">PACE</tspan>
+  </text>
+  <circle cx="257" cy="48" r="7" fill="#2dd4bf" />
+</svg>
