@@ -73,14 +73,14 @@ export default function DiscoveryChat({ slug }: DiscoveryChatProps) {
   const firstMessageText = pageConfig?.firstMessage
     ?? (pageConfig?.contactName
       ? `Hey ${pageConfig.contactName}! Thanks for jumping on. I'm from Outpace — we help businesses like ${pageConfig.companyName || "yours"} win more clients and grow. The plan is dead simple: I ask you a few questions about the business, then our team puts together a free proposal with specific recommendations. No cost, no strings. Sound good?`
-      : "Hi there! I'm your growth consultant from Outpace. I'd love to learn about your business and explore how we might help you grow. This'll take about 10 minutes, and we'll have a tailored proposal ready for you within 24 hours. Let's get started — tell me a bit about what your company does?");
+      : "Hi there! I'm your growth consultant from Outpace. I'd love to learn about your business and explore how we might help you grow. This'll take about 10 minutes, and we'll have a tailored proposal ready for you promptly. Let's get started — tell me a bit about what your company does?");
 
   const { messages, sendMessage, status, error } = useChat({
     transport,
-    initialMessages: [
+    messages: [
       {
         id: "first-message",
-        role: "assistant" as const,
+        role: "assistant" as "assistant" | "user",
         parts: [{ type: "text" as const, text: firstMessageText }],
       },
     ],
