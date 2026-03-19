@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createServerSupabaseClient } from "@/lib/supabase";
+import { createAdminClient } from "@/lib/supabase/admin";
 import crypto from "crypto";
 
 /**
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
       );
 
       // Store in Supabase
-      const supabase = createServerSupabaseClient();
+      const supabase = createAdminClient();
 
       const { error } = await supabase.from("voice_conversations").insert({
         elevenlabs_conversation_id: conversationId,
