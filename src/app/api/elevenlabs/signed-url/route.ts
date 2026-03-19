@@ -35,19 +35,34 @@ export async function POST(req: NextRequest) {
 
     // Load config from Supabase (sensitive) + codebase (non-sensitive)
     const pageConfig = slug ? await loadDiscoveryConfig(slug) : undefined;
+
+    // ── Diagnostic logging ──
+    console.log("[Signed URL] slug:", slug || "(none)");
+    console.log("[Signed URL] pageConfig loaded:", !!pageConfig);
+    if (pageConfig) {
+      console.log("[Signed URL] hasFirstMessage:", !!pageConfig.firstMessage);
+      console.log("[Signed URL] hasCustomFramework:", !!pageConfig.customQuestionFramework);
+      console.log("[Signed URL] firstMessage preview:", pageConfig.firstMessage?.slice(0, 80) || "(none)");
+    }
+
     const systemPrompt = buildDiscoverySystemPrompt(currentData, pageConfig);
 
     // Build first message
     let firstMessage: string;
+    let firstMessageSource: string;
     if (pageConfig?.firstMessage) {
       firstMessage = pageConfig.firstMessage;
+      firstMessageSource = "supabase";
     } else if (pageConfig?.customQuestionFramework) {
       firstMessage =
-        "Hey! I'm from Outpace — we're a growth consultancy. We've done a bit of research on your business already, so I've got some good context. What I'd love to do is ask you a few questions so our team can put together a tailored growth proposal. Takes about ten minutes. Sound good?";
+        "Hey! I'm from Outpace — we're a business development consultancy. We've done a bit of research on your business already, so I've got some good context. What I'd love to do is ask you a few questions so our team can put together a tailored proposal. Takes about ten minutes. Sound good?";
+      firstMessageSource = "fallback-with-framework";
     } else {
       firstMessage =
-        "Hey! I'm from Outpace — we're a growth consultancy for businesses in Ireland and the UK. I'd love to ask you a few questions about your business so our team can put together some tailored recommendations. Takes about ten minutes. Sound good?";
+        "Hey! I'm from Outpace — we help businesses win more clients. I'd love to ask you a few questions about your business so our team can put together some tailored recommendations. Takes about ten minutes. Sound good?";
+      firstMessageSource = "generic-default";
     }
+    console.log("[Signed URL] firstMessageSource:", firstMessageSource);
 
     // ── Step 1: Patch the ElevenLabs agent with the prompt server-side ──
     // This means the prompt lives on ElevenLabs' servers, NOT in the browser.
@@ -69,8 +84,10 @@ export async function POST(req: NextRequest) {
 
     if (!patchRes.ok) {
       const errText = await patchRes.text();
-      console.error("[Signed URL] Agent patch error:", patchRes.status, errText);
+      console.error("[Signed URL] Agent patch FAILED:", patchRes.status, errText);
       // Non-fatal: fall back to existing agent config if patch fails
+    } else {
+      console.log("[Signed URL] Agent patch SUCCESS — prompt length:", systemPrompt.length, "firstMessage length:", firstMessage.length);
     }
 
     // ── Step 2: Get signed URL (prompt is already on the agent) ──
